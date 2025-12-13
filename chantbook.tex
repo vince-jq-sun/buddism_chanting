@@ -43,6 +43,13 @@
 % \setmainfont{Linux Libertine O}
 \setmainfont{TeX Gyre Pagella}
 
+% ===== Title font (XeLaTeX/LuaLaTeX) =====
+\newfontfamily\titlefont{EB Garamond}[
+  Ligatures=TeX,
+  Letters=SmallCaps
+]
+% 如果你电脑没有 EB Garamond，可改成：Garamond Premier Pro / Adobe Garamond Pro / Baskerville / Georgia 等
+
 
 % 微排版（XeLaTeX 下部分功能受限但可用） --------------------
 \usepackage{microtype}
@@ -75,9 +82,19 @@
 \newcommand{\chanttitle}[1]{%
   \par\bigskip
   \begin{center}
-    {\fontsize{20}{24}\selectfont\bfseries #1}
+    {\titlefont\fontsize{20}{24}\selectfont #1}
   \end{center}
-  \skip
+}
+
+\newcommand{\NewPageTitle}[1]{
+    \clearpage
+    \thispagestyle{empty}
+    \begin{center}
+        \vspace*{\fill}
+        {\titlefont\fontsize{34}{40}\selectfont #1}
+        \vspace*{\fill}
+    \end{center}
+    \clearpage
 }
 
 %================ 自定义环境和命令 =======================
@@ -239,24 +256,6 @@
 
 \makeatother
 
-\newcommand{\NewPageTitle}[1]{
-    \clearpage % 确保在新的一页开始
-    
-    % 隐藏当前页面的页眉和页脚（页码），但页码计数器继续递增
-    \thispagestyle{empty} 
-    
-    % 使用 'center' 环境将内容垂直居中和水平居中
-    \begin{center} % <-- ⭐️ 关键修改：开始局部居中环境
-        \vspace*{\fill}
-        
-        % \centering 不再需要，因为它已经在 'center' 环境中
-        {\Huge \bfseries #1} % 文本作为参数
-        
-        \vspace*{\fill}
-    \end{center} % <-- ⭐️ 关键修改：结束局部居中环境
-    
-    \clearpage % 确保下一页的内容也从新页开始
-}
 
 %================= Real footnotes style =================
 \usepackage{footmisc}
