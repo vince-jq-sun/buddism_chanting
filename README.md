@@ -5,7 +5,7 @@ This repository contains two outputs built from the same chant source material:
 - `booklet/`: the LaTeX chant booklet sources
 - `docs/`: the static website for GitHub Pages
 
-The web version is Pali-first and shows English translations on demand with a long press.
+The web version is Pali-first and shows English translations on demand with a tap.
 
 ## Repo Layout
 

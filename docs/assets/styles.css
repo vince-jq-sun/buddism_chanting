@@ -245,6 +245,9 @@ select {
   border: none;
   border-radius: 0.9rem;
   color: inherit;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .entry.can-translate {

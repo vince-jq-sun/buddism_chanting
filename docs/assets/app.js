@@ -6,8 +6,8 @@ const STORAGE_KEYS = {
 const MIN_SCALE = 0.85;
 const MAX_SCALE = 1.45;
 const STEP = 0.05;
-const LONG_PRESS_MS = 320;
 const MOVE_THRESHOLD = 10;
+const TAP_MAX_MS = 280;
 
 const chapterSelect = document.querySelector('#chapter-select');
 const chapterView = document.querySelector('#chapter-view');
@@ -83,87 +83,75 @@ function createEntryElement(entry) {
     button.classList.add('can-translate');
   }
 
-  let longPressTimer = null;
-  let pressTriggered = false;
   let startX = 0;
   let startY = 0;
+  let touchStartTime = 0;
+  let touchMoved = false;
 
-  const clearLongPress = () => {
-    if (longPressTimer) {
-      window.clearTimeout(longPressTimer);
-      longPressTimer = null;
-    }
-  };
-
-  const beginPress = (clientX, clientY) => {
+  const beginTouch = (clientX, clientY) => {
     if (!entry.english) {
       return;
     }
     startX = clientX;
     startY = clientY;
-    pressTriggered = false;
-    clearLongPress();
-    longPressTimer = window.setTimeout(() => {
-      pressTriggered = true;
-      openDrawer(entry, button);
-    }, LONG_PRESS_MS);
+    touchStartTime = Date.now();
+    touchMoved = false;
   };
 
-  const movePress = (clientX, clientY) => {
-    if (!longPressTimer) {
+  const moveTouch = (clientX, clientY) => {
+    if (!touchStartTime) {
       return;
     }
     const moved = Math.hypot(clientX - startX, clientY - startY);
     if (moved > MOVE_THRESHOLD) {
-      clearLongPress();
+      touchMoved = true;
+    }
+  };
+
+  const endTouch = () => {
+    if (!touchStartTime || !entry.english) {
+      touchStartTime = 0;
+      return;
+    }
+
+    const elapsed = Date.now() - touchStartTime;
+    const shouldOpen = !touchMoved && elapsed <= TAP_MAX_MS;
+    touchStartTime = 0;
+
+    if (shouldOpen) {
+      openDrawer(entry, button);
     }
   };
 
   button.addEventListener('touchstart', (event) => {
     const touch = event.touches[0];
     if (touch) {
-      beginPress(touch.clientX, touch.clientY);
+      beginTouch(touch.clientX, touch.clientY);
     }
   }, { passive: true });
 
   button.addEventListener('touchmove', (event) => {
     const touch = event.touches[0];
     if (touch) {
-      movePress(touch.clientX, touch.clientY);
+      moveTouch(touch.clientX, touch.clientY);
     }
   }, { passive: true });
 
   button.addEventListener('touchend', () => {
-    clearLongPress();
+    endTouch();
   });
 
   button.addEventListener('touchcancel', () => {
-    clearLongPress();
-  });
-
-  button.addEventListener('mousedown', (event) => {
-    beginPress(event.clientX, event.clientY);
-  });
-
-  button.addEventListener('mousemove', (event) => {
-    movePress(event.clientX, event.clientY);
-  });
-
-  button.addEventListener('mouseup', () => {
-    clearLongPress();
-  });
-
-  button.addEventListener('mouseleave', () => {
-    clearLongPress();
+    touchStartTime = 0;
+    touchMoved = false;
   });
 
   button.addEventListener('click', (event) => {
-    if (pressTriggered) {
+    if ('ontouchstart' in window) {
       event.preventDefault();
-      pressTriggered = false;
       return;
     }
-    if (!('ontouchstart' in window) && entry.english) {
+    if (entry.english) {
       openDrawer(entry, button);
     }
   });
