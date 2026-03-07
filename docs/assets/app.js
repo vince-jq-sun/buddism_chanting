@@ -1,18 +1,34 @@
 const STORAGE_KEYS = {
   chapter: 'chanting.selectedChapter',
-  fontScale: 'chanting.fontScale',
+  fontScale: 'chanting.fontScale.v2',
 };
 
-const MIN_SCALE = 0.85;
-const MAX_SCALE = 1.45;
+const DEFAULT_FONT_SCALE = 0.75;
+const MIN_SCALE = 0.6;
+const MAX_SCALE = 1.3;
 const STEP = 0.05;
 const MOVE_THRESHOLD = 10;
 const TAP_MAX_MS = 280;
+const ACTIVE_CHAPTER_OFFSET = 72;
+const BASE_ENTRY_SIZE = 1.55;
+const BASE_NOTE_SIZE = 1.05;
 
-const chapterSelect = document.querySelector('#chapter-select');
+const GROUP_ORDER = ['morning', 'evening', 'homage', 'other'];
+const GROUP_LABELS = {
+  morning: 'Morning Chanting',
+  evening: 'Evening Chanting',
+  homage: 'Homage',
+  other: 'Other',
+};
+
 const chapterView = document.querySelector('#chapter-view');
 const chapterTemplate = document.querySelector('#chapter-template');
 const entryTemplate = document.querySelector('#entry-template');
+const chapterMenuToggle = document.querySelector('#chapter-menu-toggle');
+const chapterDrawer = document.querySelector('#chapter-drawer');
+const chapterDrawerClose = document.querySelector('#chapter-drawer-close');
+const chapterDrawerBackdrop = document.querySelector('#chapter-drawer-backdrop');
+const chapterDirectory = document.querySelector('#chapter-directory');
 const fontDown = document.querySelector('#font-down');
 const fontUp = document.querySelector('#font-up');
 const fontSizeLabel = document.querySelector('#font-size-label');
@@ -23,18 +39,65 @@ const drawerTranslation = document.querySelector('#drawer-translation');
 const drawerBackdrop = document.querySelector('#drawer-backdrop');
 
 let chapters = [];
-let selectedChapterIndex = 0;
+let chapterElements = new Map();
+let directoryButtons = new Map();
+let directoryGroups = new Map();
 let activeEntryElement = null;
-let fontScale = Number(localStorage.getItem(STORAGE_KEYS.fontScale)) || 1;
+let activeChapterId = localStorage.getItem(STORAGE_KEYS.chapter) || '';
+let fontScale = clamp(
+  Number(localStorage.getItem(STORAGE_KEYS.fontScale)) || DEFAULT_FONT_SCALE,
+  MIN_SCALE,
+  MAX_SCALE,
+);
+let scrollFrame = 0;
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
+function getChapterGroup(chapter) {
+  const explicitGroup = String(chapter.group || '').trim().toLowerCase();
+  if (explicitGroup && GROUP_LABELS[explicitGroup]) {
+    return explicitGroup;
+  }
+
+  const prefix = String(chapter.id || '').trim().charAt(0).toLowerCase();
+  if (prefix === 'm') {
+    return 'morning';
+  }
+  if (prefix === 'e') {
+    return 'evening';
+  }
+  if (prefix === 'h' || prefix === 's') {
+    return 'homage';
+  }
+  return 'other';
+}
+
+function groupChaptersBySection(items) {
+  const groups = new Map();
+
+  GROUP_ORDER.forEach((key) => {
+    groups.set(key, []);
+  });
+
+  items.forEach((chapter) => {
+    groups.get(getChapterGroup(chapter)).push(chapter);
+  });
+
+  return GROUP_ORDER
+    .map((key) => ({
+      key,
+      label: GROUP_LABELS[key],
+      chapters: groups.get(key),
+    }))
+    .filter((group) => group.chapters.length > 0);
+}
+
 function saveFontScale(nextScale) {
   fontScale = clamp(Number(nextScale.toFixed(2)), MIN_SCALE, MAX_SCALE);
-  document.documentElement.style.setProperty('--entry-size', `${(1.55 * fontScale).toFixed(3)}rem`);
-  document.documentElement.style.setProperty('--note-size', `${(1.05 * fontScale).toFixed(3)}rem`);
+  document.documentElement.style.setProperty('--entry-size', `${(BASE_ENTRY_SIZE * fontScale).toFixed(3)}rem`);
+  document.documentElement.style.setProperty('--note-size', `${(BASE_NOTE_SIZE * fontScale).toFixed(3)}rem`);
   fontSizeLabel.textContent = `${Math.round(fontScale * 100)}%`;
   localStorage.setItem(STORAGE_KEYS.fontScale, String(fontScale));
 }
@@ -65,6 +128,81 @@ function openDrawer(entry, element) {
   drawer.classList.add('open');
   drawer.setAttribute('aria-hidden', 'false');
   drawerBackdrop.hidden = false;
+}
+
+function openChapterDrawer() {
+  chapterDrawer.classList.add('open');
+  chapterDrawer.setAttribute('aria-hidden', 'false');
+  chapterDrawerBackdrop.hidden = false;
+  chapterMenuToggle.setAttribute('aria-expanded', 'true');
+}
+
+function closeChapterDrawer() {
+  chapterDrawer.classList.remove('open');
+  chapterDrawer.setAttribute('aria-hidden', 'true');
+  chapterDrawerBackdrop.hidden = true;
+  chapterMenuToggle.setAttribute('aria-expanded', 'false');
+}
+
+function setActiveChapter(chapterId) {
+  if (!chapterId) {
+    return;
+  }
+
+  activeChapterId = chapterId;
+  localStorage.setItem(STORAGE_KEYS.chapter, chapterId);
+
+  directoryButtons.forEach((button, id) => {
+    button.classList.toggle('active', id === chapterId);
+  });
+
+  const chapter = chapters.find((item) => item.id === chapterId);
+  if (chapter) {
+    const groupKey = getChapterGroup(chapter);
+    directoryGroups.forEach((details, key) => {
+      details.open = key === groupKey;
+    });
+  }
+}
+
+function scrollToChapter(chapterId, behavior = 'smooth') {
+  const element = chapterElements.get(chapterId);
+  if (!element) {
+    return;
+  }
+
+  element.scrollIntoView({ behavior, block: 'start' });
+  setActiveChapter(chapterId);
+}
+
+function updateActiveChapterFromScroll() {
+  const viewportTop = chapterView.getBoundingClientRect().top;
+  let nextActiveId = chapters[0]?.id || '';
+
+  chapters.forEach((chapter) => {
+    const element = chapterElements.get(chapter.id);
+    if (!element) {
+      return;
+    }
+
+    const distanceFromTop = element.getBoundingClientRect().top - viewportTop;
+    if (distanceFromTop <= ACTIVE_CHAPTER_OFFSET) {
+      nextActiveId = chapter.id;
+    }
+  });
+
+  setActiveChapter(nextActiveId);
+}
+
+function queueActiveChapterUpdate() {
+  if (scrollFrame) {
+    return;
+  }
+
+  scrollFrame = window.requestAnimationFrame(() => {
+    scrollFrame = 0;
+    updateActiveChapterFromScroll();
+  });
 }
 
 function createEntryElement(entry) {
@@ -159,45 +297,106 @@ function createEntryElement(entry) {
   return button;
 }
 
-function renderChapter(index) {
-  selectedChapterIndex = index;
-  const chapter = chapters[index];
-  if (!chapter) {
+function renderDirectory() {
+  const groups = groupChaptersBySection(chapters);
+  const fragment = document.createDocumentFragment();
+
+  directoryButtons = new Map();
+  directoryGroups = new Map();
+
+  groups.forEach((group, index) => {
+    const details = document.createElement('details');
+    details.className = 'directory-group';
+    details.open = index === 0;
+    directoryGroups.set(group.key, details);
+
+    const summary = document.createElement('summary');
+    summary.className = 'directory-summary';
+    summary.textContent = group.label;
+    details.appendChild(summary);
+
+    const list = document.createElement('div');
+    list.className = 'directory-list';
+
+    group.chapters.forEach((chapter) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'directory-button';
+      button.textContent = `${chapter.id.toUpperCase()}  ${chapter.title}`;
+      button.addEventListener('click', () => {
+        closeChapterDrawer();
+        scrollToChapter(chapter.id);
+      });
+      list.appendChild(button);
+      directoryButtons.set(chapter.id, button);
+    });
+
+    details.appendChild(list);
+    fragment.appendChild(details);
+  });
+
+  chapterDirectory.replaceChildren(fragment);
+
+  if (activeChapterId) {
+    setActiveChapter(activeChapterId);
+  }
+}
+
+function renderChapters() {
+  chapterElements = new Map();
+  closeDrawer();
+
+  if (!chapters.length) {
+    chapterView.innerHTML = '<div class="loading">No chants available.</div>';
     return;
   }
 
-  localStorage.setItem(STORAGE_KEYS.chapter, chapter.id);
-  chapterSelect.value = chapter.id;
-  closeDrawer();
+  const stack = document.createElement('div');
+  stack.className = 'chapter-stack';
 
-  const fragment = chapterTemplate.content.cloneNode(true);
-  fragment.querySelector('.chapter-id').textContent = chapter.id.toUpperCase();
-  fragment.querySelector('.chapter-title').textContent = chapter.title;
+  let lastGroupKey = '';
 
-  const content = fragment.querySelector('.chapter-content');
-  chapter.subsections.forEach((subsection) => {
-    const section = document.createElement('section');
-    section.className = 'subsection';
-    subsection.entries.forEach((entry) => {
-      if (!entry.pali) {
-        return;
-      }
-      section.appendChild(createEntryElement(entry));
-    });
-    if (section.childElementCount) {
-      content.appendChild(section);
+  chapters.forEach((chapter) => {
+    const groupKey = getChapterGroup(chapter);
+    if (groupKey !== lastGroupKey) {
+      const groupLabel = document.createElement('div');
+      groupLabel.className = 'group-break';
+      groupLabel.textContent = GROUP_LABELS[groupKey] || GROUP_LABELS.other;
+      stack.appendChild(groupLabel);
+      lastGroupKey = groupKey;
     }
+
+    const fragment = chapterTemplate.content.cloneNode(true);
+    const article = fragment.querySelector('.chapter');
+    article.id = `chapter-${chapter.id}`;
+    article.dataset.chapterId = chapter.id;
+    article.dataset.groupKey = groupKey;
+
+    fragment.querySelector('.chapter-id').textContent = chapter.id.toUpperCase();
+    fragment.querySelector('.chapter-title').textContent = chapter.title;
+
+    const content = fragment.querySelector('.chapter-content');
+    chapter.subsections.forEach((subsection) => {
+      const section = document.createElement('section');
+      section.className = 'subsection';
+      subsection.entries.forEach((entry) => {
+        if (!entry.pali) {
+          return;
+        }
+        section.appendChild(createEntryElement(entry));
+      });
+      if (section.childElementCount) {
+        content.appendChild(section);
+      }
+    });
+
+    chapterElements.set(chapter.id, article);
+    stack.appendChild(fragment);
   });
 
-  const prevButton = fragment.querySelector('.prev-button');
-  const nextButton = fragment.querySelector('.next-button');
-  prevButton.disabled = index === 0;
-  nextButton.disabled = index === chapters.length - 1;
-  prevButton.addEventListener('click', () => renderChapter(index - 1));
-  nextButton.addEventListener('click', () => renderChapter(index + 1));
-
-  chapterView.replaceChildren(fragment);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  chapterView.replaceChildren(stack);
+  renderDirectory();
+  updateActiveChapterFromScroll();
 }
 
 async function init() {
@@ -205,32 +404,38 @@ async function init() {
 
   const response = await fetch('./data/chapters.json');
   const payload = await response.json();
-  chapters = payload.chapters;
+  chapters = payload.chapters || [];
+  renderChapters();
 
-  chapterSelect.innerHTML = '';
-  chapters.forEach((chapter) => {
-    const option = document.createElement('option');
-    option.value = chapter.id;
-    option.textContent = `${chapter.id.toUpperCase()} · ${chapter.title}`;
-    chapterSelect.appendChild(option);
-  });
+  const initialChapterId = chapters.some((chapter) => chapter.id === activeChapterId)
+    ? activeChapterId
+    : chapters[0]?.id || '';
 
-  chapterSelect.addEventListener('change', () => {
-    const nextIndex = chapters.findIndex((chapter) => chapter.id === chapterSelect.value);
-    renderChapter(nextIndex === -1 ? 0 : nextIndex);
-  });
-
-  const storedChapter = localStorage.getItem(STORAGE_KEYS.chapter);
-  const initialIndex = chapters.findIndex((chapter) => chapter.id === storedChapter);
-  renderChapter(initialIndex >= 0 ? initialIndex : 0);
+  if (initialChapterId) {
+    scrollToChapter(initialChapterId, 'auto');
+  }
 }
 
 fontDown.addEventListener('click', () => saveFontScale(fontScale - STEP));
 fontUp.addEventListener('click', () => saveFontScale(fontScale + STEP));
+chapterMenuToggle.addEventListener('click', () => {
+  if (chapterDrawer.classList.contains('open')) {
+    closeChapterDrawer();
+    return;
+  }
+  openChapterDrawer();
+});
+chapterDrawerClose.addEventListener('click', closeChapterDrawer);
+chapterDrawerBackdrop.addEventListener('click', closeChapterDrawer);
 drawerClose.addEventListener('click', closeDrawer);
 drawerBackdrop.addEventListener('click', closeDrawer);
+chapterView.addEventListener('scroll', queueActiveChapterUpdate, { passive: true });
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
+    if (chapterDrawer.classList.contains('open')) {
+      closeChapterDrawer();
+      return;
+    }
     closeDrawer();
   }
 });

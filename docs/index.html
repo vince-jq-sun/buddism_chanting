@@ -19,31 +19,45 @@
   </head>
   <body>
     <div class="app-shell">
-      <header class="hero">
-        <p class="eyebrow">Pali Chanting Booklet</p>
-        <h1>Buddhist Chanting</h1>
-        <p class="hero-copy">
-          Full chanting chapters in Pali. Tap any line to open its English translation.
-        </p>
-      </header>
+      <main id="chapter-view" class="chapter-view" aria-live="polite">
+        <div class="loading">Loading chants...</div>
+      </main>
 
-      <div class="toolbar">
-        <label class="chapter-picker">
-          <span>Chapter</span>
-          <select id="chapter-select" aria-label="Select chapter"></select>
-        </label>
-
+      <nav class="toolbar" aria-label="Reader tools">
+        <button
+          id="chapter-menu-toggle"
+          class="toolbar-button chapter-menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="chapter-drawer"
+        >
+          <span class="menu-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Open chapter directory</span>
+        </button>
         <div class="font-widget" aria-label="Font size controls">
           <button id="font-down" type="button" aria-label="Decrease font size">-</button>
           <span id="font-size-label">100%</span>
           <button id="font-up" type="button" aria-label="Increase font size">+</button>
         </div>
-      </div>
-
-      <main id="chapter-view" class="chapter-view" aria-live="polite">
-        <div class="loading">Loading chants...</div>
-      </main>
+      </nav>
     </div>
+
+    <aside id="chapter-drawer" class="chapter-drawer" aria-hidden="true">
+      <div class="chapter-drawer-header">
+        <p class="drawer-label">Chapters</p>
+        <button
+          id="chapter-drawer-close"
+          class="chapter-drawer-close"
+          type="button"
+          aria-label="Close chapter directory"
+        >
+          Close
+        </button>
+      </div>
+      <div id="chapter-directory" class="chapter-directory"></div>
+    </aside>
+
+    <div id="chapter-drawer-backdrop" class="chapter-drawer-backdrop" hidden></div>
 
     <aside id="translation-drawer" class="translation-drawer" aria-hidden="true">
       <div class="drawer-handle" aria-hidden="true"></div>
@@ -62,13 +76,8 @@
         <div class="chapter-heading">
           <p class="chapter-id"></p>
           <h2 class="chapter-title"></h2>
-          <p class="chapter-hint">Tap a line to open the English translation.</p>
         </div>
         <div class="chapter-content"></div>
-        <nav class="chapter-nav">
-          <button class="nav-button prev-button" type="button">Previous</button>
-          <button class="nav-button next-button" type="button">Next</button>
-        </nav>
       </article>
     </template>
 
