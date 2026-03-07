@@ -1,0 +1,1271 @@
+{
+  "chapters": [
+    {
+      "id": "m1",
+      "title": "Ratanattaya-vandanā",
+      "source": "booklet/m01-ratanattaya-vandana.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m1-1",
+              "kind": "line",
+              "pali": "Yo so bhagavā arahaṃ sammāsambuddho",
+              "english": "That Blessed One is an arahant (a fully awakened one), perfectly awakened."
+            },
+            {
+              "id": "m1-2",
+              "kind": "line",
+              "pali": "Svākkhāto yena bhagavatā dhammo",
+              "english": "The Dhamma (the Buddha's teaching) is well expounded by that Blessed One."
+            },
+            {
+              "id": "m1-3",
+              "kind": "line",
+              "pali": "Supaṭipanno yassa bhagavato sāvakasaṅgho",
+              "english": "The Sangha (the community of the Blessed One's disciples) has practiced well."
+            },
+            {
+              "id": "m1-4",
+              "kind": "line",
+              "pali": "Tammayaṃ bhagavantaṃ sadhammaṃ sasaṅghaṃ",
+              "english": "To that Blessed One, to the true Dhamma, and to the Sangha"
+            },
+            {
+              "id": "m1-5",
+              "kind": "line",
+              "pali": "Imehi sakkārehi yathārahaṃ āropitehi abhipūjayāma",
+              "english": "we offer these offerings, rightly arranged, and pay deep homage."
+            },
+            {
+              "id": "m1-6",
+              "kind": "line",
+              "pali": "Sādhu no bhante bhagavā suciraparinibbutopi",
+              "english": "It is well, Venerable Sir, that the Blessed One, though long since attained to final Nibbāna"
+            },
+            {
+              "id": "m1-7",
+              "kind": "line",
+              "pali": "Pacchimājanatānukampamānasā",
+              "english": "out of compassion for later generations,"
+            },
+            {
+              "id": "m1-8",
+              "kind": "line",
+              "pali": "Ime sakkāre duggatapaṇṇākārabhūte paṭiggaṇhātu",
+              "english": "please accept these humble, trifling offerings,"
+            },
+            {
+              "id": "m1-9",
+              "kind": "line",
+              "pali": "Amhākaṃ dīgharattaṃ hitāya sukhāya",
+              "english": "for our long-lasting welfare and happiness."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "title": "Ratanattayanamakārapāṭha",
+      "source": "booklet/m02-ratanattayanamakarapatha.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m2-1",
+              "kind": "line",
+              "pali": "Arahaṃ sammāsambuddho bhagavā",
+              "english": "The Blessed One is an arahant, perfectly awakened;"
+            },
+            {
+              "id": "m2-2",
+              "kind": "line",
+              "pali": "Buddhaṃ bhagavantaṃ abhivādemi --- bow ---",
+              "english": "To the Buddha, the Blessed One, I pay homage."
+            },
+            {
+              "id": "m2-3",
+              "kind": "line",
+              "pali": "Svākkhāto bhagavatā dhammo dhammaṃ namassāmi --- bow ---",
+              "english": "The Dhamma is well expounded by the Blessed One; to the Dhamma I pay homage."
+            },
+            {
+              "id": "m2-4",
+              "kind": "line",
+              "pali": "Supaṭipanno bhagavato sāvakasaṅgho saṅghaṃ namāmi",
+              "english": "The Sangha of the Blessed One’s disciples has practiced well; to the Sangha I pay homage."
+            },
+            {
+              "id": "m2-5",
+              "kind": "note",
+              "pali": "--- bow ---",
+              "english": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m3",
+      "title": "Pubbabhāganamakārapāṭha",
+      "source": "booklet/m03-pubbabhaga.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m3-1",
+              "kind": "note",
+              "pali": "Handa mayaṃ buddhassa bhagavato pubbabhāganamakāraṃ karoma se",
+              "english": "Now let us pay preliminary homage to the Buddha, the Blessed One. Homage to that Blessed One, an arahant, perfectly awakened."
+            },
+            {
+              "id": "m3-2",
+              "kind": "note",
+              "pali": "Namo tassa bhagavato arahato sammāsambuddhassa",
+              "english": ""
+            },
+            {
+              "id": "m3-3",
+              "kind": "note",
+              "pali": "--- three times ---",
+              "english": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m4",
+      "title": "Buddhābhithuti",
+      "source": "booklet/m04-buddhabhithuti.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m4-1",
+              "kind": "note",
+              "pali": "Handa mayaṃ buddhābhithutiṃ karoma se",
+              "english": "Now let us recite in praise of the Buddha."
+            },
+            {
+              "id": "m4-2",
+              "kind": "line",
+              "pali": "Yo so tathāgato arahaṃ sammāsambuddho",
+              "english": "He is the Tathāgata (the Thus-Gone One), an arahant, perfectly awakened,"
+            },
+            {
+              "id": "m4-3",
+              "kind": "line",
+              "pali": "Vijjācaraṇasampanno sugato lokavidū",
+              "english": "endowed with true knowledge and conduct, the Well-gone One, knower of the worlds,"
+            },
+            {
+              "id": "m4-4",
+              "kind": "line",
+              "pali": "Anuttaro purisadammasārathi",
+              "english": "unsurpassed trainer of persons to be tamed,"
+            },
+            {
+              "id": "m4-5",
+              "kind": "line",
+              "pali": "Satthā devamanussānaṃ buddho bhagavā",
+              "english": "teacher of gods and humans; the awakened, Blessed One."
+            },
+            {
+              "id": "m4-6",
+              "kind": "line",
+              "pali": "Yo imaṃ lokaṃ sadevakaṃ samārakaṃ sabrahmakaṃ",
+              "english": "He has realized this world with its gods, Māras, and Brahmās,"
+            },
+            {
+              "id": "m4-7",
+              "kind": "line",
+              "pali": "Sassamaṇabrāhmaṇiṃ pajaṃ sadevamanussaṃ",
+              "english": "and this generation with its ascetics and brahmins, its gods and humans,"
+            },
+            {
+              "id": "m4-8",
+              "kind": "line",
+              "pali": "Sayaṃ abhiññā sacchikatvā pavedesi",
+              "english": "and teaches it after having realized it by his own direct knowledge."
+            },
+            {
+              "id": "m4-9",
+              "kind": "line",
+              "pali": "Yo dhammaṃ desesi ādikalyāṇaṃ",
+              "english": "He teaches the Dhamma that is admirable in the beginning,"
+            },
+            {
+              "id": "m4-10",
+              "kind": "line",
+              "pali": "Majjhekalyāṇaṃ pariyosānakalyāṇaṃ",
+              "english": "admirable in the middle, and admirable in the end,"
+            },
+            {
+              "id": "m4-11",
+              "kind": "line",
+              "pali": "Sātthaṃ sabyañjaṇaṃ kevalaparipuṇṇaṃ parisuddhaṃ",
+              "english": "with the meaning and wording complete, perfect in every respect, wholly pure."
+            },
+            {
+              "id": "m4-12",
+              "kind": "line",
+              "pali": "Brahmacariyaṃ pakāsesi",
+              "english": "He has made known the perfectly complete holy life."
+            },
+            {
+              "id": "m4-13",
+              "kind": "line",
+              "pali": "Tamahaṃ bhagavantaṃ abhipūjayāmi",
+              "english": "To that Blessed One I pay deep homage."
+            },
+            {
+              "id": "m4-14",
+              "kind": "line",
+              "pali": "Tamahaṃ bhagavantaṃ sirasā namāmi --- bow ---",
+              "english": "To that Blessed One I bow my head."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5",
+      "title": "Dhammābhithuti",
+      "source": "booklet/m05-dhammabhithuti.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m5-1",
+              "kind": "line",
+              "pali": "Handa mayaṃ dhammābhithutiṃ karoma se",
+              "english": "Now let us recite in praise of the Dhamma."
+            },
+            {
+              "id": "m5-2",
+              "kind": "line",
+              "pali": "Yo so svākkhāto bhagavatā dhammo",
+              "english": "The Dhamma is well expounded by the Blessed One,"
+            },
+            {
+              "id": "m5-3",
+              "kind": "line",
+              "pali": "Sandiṭṭhiko akāliko ehipassiko",
+              "english": "visible here and now, timeless, inviting one to come and see,"
+            },
+            {
+              "id": "m5-4",
+              "kind": "line",
+              "pali": "Opanayiko paccattaṃ veditabbo viññūhi",
+              "english": "leading inwards, to be realized individually by the wise."
+            },
+            {
+              "id": "m5-5",
+              "kind": "line",
+              "pali": "Tamahaṃ dhammaṃ abhipūjayāmi",
+              "english": "To this Dhamma I pay deep homage."
+            },
+            {
+              "id": "m5-6",
+              "kind": "line",
+              "pali": "Tamahaṃ dhammaṃ sirasā namāmi --- bow ---",
+              "english": "To this Dhamma I bow my head."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6",
+      "title": "Saṅghābhithuti",
+      "source": "booklet/m06-sanghabhithuti.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m6-1",
+              "kind": "line",
+              "pali": "Handa mayaṃ saṅghābhithutiṃ karoma se",
+              "english": "Now let us recite in praise of the Sangha."
+            },
+            {
+              "id": "m6-2",
+              "kind": "line",
+              "pali": "Yo so supaṭipanno bhagavato sāvakasaṅgho",
+              "english": "The Sangha of the Blessed One’s disciples has practiced well,"
+            },
+            {
+              "id": "m6-3",
+              "kind": "line",
+              "pali": "Ujupaṭipanno bhagavato sāvakasaṅgho",
+              "english": "has practiced uprightly,"
+            },
+            {
+              "id": "m6-4",
+              "kind": "line",
+              "pali": "Ñāyapaṭipanno bhagavato sāvakasaṅgho",
+              "english": "has practiced in the right way,"
+            },
+            {
+              "id": "m6-5",
+              "kind": "line",
+              "pali": "Sāmīcipaṭipanno bhagavato sāvakasaṅgho",
+              "english": "has practiced properly,"
+            },
+            {
+              "id": "m6-6",
+              "kind": "line",
+              "pali": "Yadidaṃ cattāri purisayugāni aṭṭha purisapuggalā",
+              "english": "namely, the four pairs, the eight kinds of noble individuals."
+            },
+            {
+              "id": "m6-7",
+              "kind": "line",
+              "pali": "Esa bhagavato sāvakasaṅgho",
+              "english": "This is the Sangha of the Blessed One’s disciples:"
+            },
+            {
+              "id": "m6-8",
+              "kind": "line",
+              "pali": "Āhuneyyo pāhuneyyo dakkhiṇeyyo añjalīkaraṇīyo",
+              "english": "worthy of gifts, worthy of hospitality, worthy of offerings, worthy of reverential salutation,"
+            },
+            {
+              "id": "m6-9",
+              "kind": "line",
+              "pali": "Anuttaraṃ puññakkhettaṃ lokassa",
+              "english": "the unsurpassed field of merit for the world."
+            },
+            {
+              "id": "m6-10",
+              "kind": "line",
+              "pali": "Tamahaṃ saṅghaṃ abhipūjayāmi",
+              "english": "To this Sangha I pay deep homage."
+            },
+            {
+              "id": "m6-11",
+              "kind": "line",
+              "pali": "Tamahaṃ saṅghaṃ sirasā namāmi --- bow ---",
+              "english": "To this Sangha I bow my head."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m7",
+      "title": "Ratanattayappaṇāmagāthā",
+      "source": "booklet/m07-Ratanattayappaṇamagatha.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m7-1",
+              "kind": "note",
+              "pali": "Handa mayaṃ ratanattayappaṇāmagāthāyo ceva saṃvegaparikittanapāṭhañca bhaṇāma se",
+              "english": "Now let us recite our verses of salutation to the Triple Gem and a passage to stir urgency."
+            },
+            {
+              "id": "m7-2",
+              "kind": "line",
+              "pali": "Buddho susuddho karuṇāmahaṇṇavo",
+              "english": "The Buddha, utterly pure, with compassion deep as the ocean,"
+            },
+            {
+              "id": "m7-3",
+              "kind": "line",
+              "pali": "Yoccantasuddhabbarañāṇalocano",
+              "english": "possessing the eye of excellent, stainless wisdom,"
+            },
+            {
+              "id": "m7-4",
+              "kind": "line",
+              "pali": "Lokassa pāpūpakilesaghātako",
+              "english": "the destroyer of the world’s evil and defilements:"
+            },
+            {
+              "id": "m7-5",
+              "kind": "line",
+              "pali": "Vandāmi buddhaṃ ahamādarena taṃ",
+              "english": "that Buddha I revere with a devoted heart."
+            },
+            {
+              "id": "m7-6",
+              "kind": "line",
+              "pali": "Dhammo padīpo viya tassa satthuno",
+              "english": "The Dhamma of that Teacher, like a lamp,"
+            },
+            {
+              "id": "m7-7",
+              "kind": "line",
+              "pali": "Yo maggapākāmatabhedabhinnako",
+              "english": "distinguished as the Path, Fruition, the Deathless and its divisions,"
+            },
+            {
+              "id": "m7-8",
+              "kind": "line",
+              "pali": "Lokuttaro yo ca tadatthadīpano",
+              "english": "supramundane, illuminating its own objective,"
+            },
+            {
+              "id": "m7-9",
+              "kind": "line",
+              "pali": "Vandāmi dhammaṃ ahamādarena taṃ",
+              "english": "that Dhamma I revere with a devoted heart."
+            },
+            {
+              "id": "m7-10",
+              "kind": "line",
+              "pali": "Saṅgho sukhettābhayatikhettasaññito",
+              "english": "The Sangha, known as a fertile field and a field of fearlessness,"
+            },
+            {
+              "id": "m7-11",
+              "kind": "line",
+              "pali": "Yo diṭṭhasanto sugatānubodhako",
+              "english": "the seers who realize, awakened in the footsteps of the Well-Gone One,"
+            },
+            {
+              "id": "m7-12",
+              "kind": "line",
+              "pali": "Lolappahīno ariyo sumedhaso",
+              "english": "free from fickleness, noble and of excellent wisdom:"
+            },
+            {
+              "id": "m7-13",
+              "kind": "line",
+              "pali": "Vandāmi saṅghaṃ ahamādarena taṃ",
+              "english": "that Sangha I revere with a devoted heart."
+            },
+            {
+              "id": "m7-14",
+              "kind": "line",
+              "pali": "Iccevamekantabhipūjaneyyakaṃ",
+              "english": "Thus this threefold basis, supremely worthy of veneration,"
+            },
+            {
+              "id": "m7-15",
+              "kind": "line",
+              "pali": "Vatthuttayaṃ vandayatābhisaṅkhataṃ",
+              "english": "when honored and attended to in this way,"
+            },
+            {
+              "id": "m7-16",
+              "kind": "line",
+              "pali": "Puññaṃ mayā yaṃ mama sabbupaddavā",
+              "english": "may the merit I have made cause all my misfortunes"
+            },
+            {
+              "id": "m7-17",
+              "kind": "line",
+              "pali": "Mā hontu ve tassa pabhāvasiddhiyā",
+              "english": "not to come to be, through the fulfillment of its power."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m8",
+      "title": "Saṃvegaparikittanapāṭha",
+      "source": "booklet/m08-Saṃvegaparikittanapaṭha.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m8-1",
+              "kind": "line",
+              "pali": "Idha tathāgato loke uppanno arahaṃ sammāsambuddho,",
+              "english": "Here in this world the Tathāgata, an arahant, perfectly awakened, has arisen."
+            },
+            {
+              "id": "m8-2",
+              "kind": "line",
+              "pali": "Dhammo ca desito niyyāniko upasamiko parinibbāniko sambodhagāmī sugatappavedito.",
+              "english": "And the Dhamma has been taught that leads out, brings peace, leads to final Nibbāna, leads to awakening, proclaimed by the Well-gone One."
+            },
+            {
+              "id": "m8-3",
+              "kind": "line",
+              "pali": "Mayantaṃ dhammaṃ sutvā evaṃ jānāma.",
+              "english": "Having heard that Dhamma, we understand thus:"
+            },
+            {
+              "id": "m8-4",
+              "kind": "line",
+              "pali": "Jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkhaṃ,",
+              "english": "birth is suffering, aging is suffering, death is suffering;"
+            },
+            {
+              "id": "m8-5",
+              "kind": "line",
+              "pali": "sokaparidevadukkhadomanassupāyāsāpi dukkhā,",
+              "english": "sorrow, lamentation, pain, grief and despair are suffering;"
+            },
+            {
+              "id": "m8-6",
+              "kind": "line",
+              "pali": "Appiyehi sampayogo dukkho, piyehi vippayogo dukkho,",
+              "english": "association with the disliked is suffering, separation from the loved is suffering;"
+            },
+            {
+              "id": "m8-7",
+              "kind": "line",
+              "pali": "Yampicchaṃ na labhati, tampi dukkhaṃ.",
+              "english": "not getting what one wants is also suffering."
+            }
+          ]
+        },
+        {
+          "entries": [
+            {
+              "id": "m8-8",
+              "kind": "line",
+              "pali": "Saṅkhittena pañcupādānakkhandhā dukkhā.",
+              "english": "In brief, the five aggregates subject to clinging are suffering."
+            },
+            {
+              "id": "m8-9",
+              "kind": "line",
+              "pali": "Seyyathīdaṃ, rūpūpādānakkhandho vedanūpādānakkhandho saññūpādānakkhandho saṅkhārūpādānakkhandho viññāṇūpādānakkhandho,",
+              "english": "That is to say: the aggregate of clinging to form, to feeling, to perception, to formations, and to consciousness."
+            },
+            {
+              "id": "m8-10",
+              "kind": "line",
+              "pali": "yesaṃ pariññāya dharamāno so bhagavā evaṃ bahulaṃ sāvake vineti.",
+              "english": "For the full understanding of these, while still alive, the Blessed One often trains his disciples in this way."
+            },
+            {
+              "id": "m8-11",
+              "kind": "line",
+              "pali": "Evaṃbhāgā ca panassa bhagavato sāvakesu anusāsanī bahulā pavattati.",
+              "english": "And in this way his instruction among the disciples frequently proceeds."
+            },
+            {
+              "id": "m8-12",
+              "kind": "line",
+              "pali": "Rūpaṃ aniccaṃ, vedanā aniccā, saññā aniccā, saṅkhārā aniccā, viññāṇaṃ aniccaṃ,",
+              "english": "Form is impermanent, feeling is impermanent, perception is impermanent, formations are impermanent, consciousness is impermanent;"
+            },
+            {
+              "id": "m8-13",
+              "kind": "line",
+              "pali": "rūpaṃ anattā, vedanā anattā, saññā anattā, saṅkhārā anattā, viññāṇaṃ anattā,",
+              "english": "form is not-self, feeling is not-self, perception is not-self, formations are not-self, consciousness is not-self;"
+            },
+            {
+              "id": "m8-14",
+              "kind": "line",
+              "pali": "sabbe saṅkhārā aniccā, sabbe dhammā anattāti.",
+              "english": "all conditioned things are impermanent, all dhammas are not-self."
+            }
+          ]
+        },
+        {
+          "entries": [
+            {
+              "id": "m8-15",
+              "kind": "line",
+              "pali": "Te to Tā. mayaṃ, otiṇṇāmaha jātiyā jarāmaraṇena sokehi paridevehi dukkhehi domanassehi upāyāsehi.",
+              "english": "We, who are sunk in birth, aging and death, in sorrow, lamentation, pain, grief and despair,"
+            },
+            {
+              "id": "m8-16",
+              "kind": "line",
+              "pali": "Dukkhotiṇṇā dukkhaparetā, appevanāmimassa kevalassa dukkhakkhandhassa antakiriyā paññāyethāti.",
+              "english": "overwhelmed by suffering and oppressed by suffering, may the ending of this entire mass of suffering become apparent to us."
+            },
+            {
+              "id": "m8-17",
+              "kind": "line",
+              "pali": "Ciraparinibbutampi taṃ bhagavantaṃ saraṇaṃ gatā, dhammañca saṅghañca,",
+              "english": "Though that Blessed One has long attained final Nibbāna, we have gone for refuge to that Blessed One, to the Dhamma and to the Saṅgha,"
+            },
+            {
+              "id": "m8-18",
+              "kind": "line",
+              "pali": "tassa bhagavato sāsanaṃ yathāsati yathābalaṃ manasikaroma anupaṭipajjāma.",
+              "english": "and we attend to that Blessed One’s teaching and practise it according to our mindfulness and strength."
+            },
+            {
+              "id": "m8-19",
+              "kind": "line",
+              "pali": "Sā sā no paṭipatti imassa kevalassa dukkhakkhandassa antakiriyāya saṃvattatu.",
+              "english": "May this practice of ours lead to the ending of this entire mass of suffering."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m9",
+      "title": "Taṅkhaṇika-paccavekkhaṇa-pāṭho",
+      "source": "booklet/m09-Tankhanika-paccavekkhana-patho.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m9-1",
+              "kind": "note",
+              "pali": "Handa mayaṃ taṅkhaṇika-paccavekkhaṇa-pāṭhaṃ bhaṇāmase",
+              "english": "Now let us recite the reflection at the time of using the requisites."
+            },
+            {
+              "id": "m9-2",
+              "kind": "line",
+              "pali": "Paṭisaṅkhā yoniso cīvaraṃ paṭisevāmi,",
+              "english": "Wisely reflecting, I use the robe,"
+            },
+            {
+              "id": "m9-3",
+              "kind": "line",
+              "pali": "yāvadeva sītassa paṭighātāya,",
+              "english": "only for warding off cold,"
+            },
+            {
+              "id": "m9-4",
+              "kind": "line",
+              "pali": "uṇhassa paṭighātāya,",
+              "english": "for warding off heat,"
+            },
+            {
+              "id": "m9-5",
+              "kind": "line",
+              "pali": "ḍaṃsa-makasa-vātātapa-siriṃsapa-samphassānaṃ paṭighātāya,",
+              "english": "for warding off the touch of flies, mosquitoes, wind, sun, and creeping things,"
+            },
+            {
+              "id": "m9-6",
+              "kind": "line",
+              "pali": "yāvadeva hirikopina-paṭicchādanatthaṃ.",
+              "english": "only for the purpose of covering the body."
+            },
+            {
+              "id": "m9-7",
+              "kind": "line",
+              "pali": "Paṭisaṅkhā yoniso piṇḍapātaṃ paṭisevāmi,",
+              "english": "Wisely reflecting, I use almsfood:"
+            },
+            {
+              "id": "m9-8",
+              "kind": "line",
+              "pali": "neva davāya,",
+              "english": "not for fun,"
+            },
+            {
+              "id": "m9-9",
+              "kind": "line",
+              "pali": "na madāya,",
+              "english": "not for intoxication,"
+            },
+            {
+              "id": "m9-10",
+              "kind": "line",
+              "pali": "na maṇḍanāya,",
+              "english": "not for fattening,"
+            },
+            {
+              "id": "m9-11",
+              "kind": "line",
+              "pali": "na vibhūsanāya,",
+              "english": "not for beautification,"
+            },
+            {
+              "id": "m9-12",
+              "kind": "line",
+              "pali": "yāvadeva imassa kāyassa ṭhitiyā, yāpanāya,",
+              "english": "but only for the maintenance and nourishment of this body,"
+            },
+            {
+              "id": "m9-13",
+              "kind": "line",
+              "pali": "vihiṃsūparatiyā, brahmacariyānuggahāya,",
+              "english": "for keeping it unharmed and for supporting the holy life, thinking:"
+            },
+            {
+              "id": "m9-14",
+              "kind": "line",
+              "pali": "iti purāṇañca vedanaṃ paṭihaṅkhāmi,",
+              "english": "'thus I shall allay old feeling,"
+            },
+            {
+              "id": "m9-15",
+              "kind": "line",
+              "pali": "navañca vedanaṃ na uppādessāmi,",
+              "english": "and not arouse new feeling;"
+            },
+            {
+              "id": "m9-16",
+              "kind": "line",
+              "pali": "yātrā ca me bhavissati,",
+              "english": "there will be for me support for the journey of life,"
+            },
+            {
+              "id": "m9-17",
+              "kind": "line",
+              "pali": "anavajjatā ca phāsuvihāro cā'ti.",
+              "english": "and blamelessness and comfortable abiding."
+            }
+          ]
+        },
+        {
+          "entries": [
+            {
+              "id": "m9-18",
+              "kind": "line",
+              "pali": "Paṭisaṅkhā yoniso senāsanaṃ paṭisevāmi,",
+              "english": "Wisely reflecting, I use a lodging,"
+            },
+            {
+              "id": "m9-19",
+              "kind": "line",
+              "pali": "yāvadeva sītassa paṭighātāya,",
+              "english": "only for warding off cold,"
+            },
+            {
+              "id": "m9-20",
+              "kind": "line",
+              "pali": "uṇhassa paṭighātāya,",
+              "english": "for warding off heat,"
+            },
+            {
+              "id": "m9-21",
+              "kind": "line",
+              "pali": "ḍaṃsa-makasa-vātātapa-siriṃsapa-samphassānaṃ paṭighātāya,",
+              "english": "for warding off the touch of flies, mosquitoes, wind, sun, and creeping things,"
+            },
+            {
+              "id": "m9-22",
+              "kind": "line",
+              "pali": "yāvadeva utuparissaya vinodanaṃ paṭisallānārāmatthaṃ.",
+              "english": "only for dispelling the hardships of climate and for the enjoyment of seclusion."
+            },
+            {
+              "id": "m9-23",
+              "kind": "line",
+              "pali": "Paṭisaṅkhā yoniso gilāna-paccaya-bhesajja-parikkhāraṃ paṭisevāmi,",
+              "english": "Wisely reflecting, I use medicinal requisites for the sick,"
+            },
+            {
+              "id": "m9-24",
+              "kind": "line",
+              "pali": "yāvadeva uppannānaṃ veyyābādhikānaṃ vedanānaṃ paṭighātāya,",
+              "english": "only for warding off painful feelings that have arisen,"
+            },
+            {
+              "id": "m9-25",
+              "kind": "line",
+              "pali": "abyāpajjha-paramatāyā'ti.",
+              "english": "and for the attainment of freedom from affliction."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m10",
+      "title": "Dhātupaṭikūla-paccavekkhaṇa-pāṭho",
+      "source": "booklet/m10-dhatupatikula-paccavekkhaṇa-paṭho.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m10-1",
+              "kind": "note",
+              "pali": "Handa mayaṃ dhātupaṭikūlapaccavekkhaṇapāṭhaṃ bhaṇāma se",
+              "english": "Now let us recite the contemplation on the repulsiveness of the elements."
+            },
+            {
+              "id": "m10-2",
+              "kind": "line",
+              "pali": "Yathāpaccayaṃ pavattamānaṃ dhātumattamevetaṃ,",
+              "english": "Arising according to conditions, this is merely a mass of elements,"
+            },
+            {
+              "id": "m10-3",
+              "kind": "line",
+              "pali": "yadidaṃ cīvaraṃ,",
+              "english": "namely this robe,"
+            },
+            {
+              "id": "m10-4",
+              "kind": "line",
+              "pali": "tadupabhuñjako ca puggalo dhātumattako nissatto nijjīvo suñño,",
+              "english": "and the person who makes use of it is also just elements, devoid of self, lifeless, empty,"
+            },
+            {
+              "id": "m10-5",
+              "kind": "line",
+              "pali": "sabbāni pana imāni cīvarāni ajigucchaniyāni",
+              "english": "yet all these robes themselves are not disgusting"
+            },
+            {
+              "id": "m10-6",
+              "kind": "line",
+              "pali": "imaṃ pūtikāyaṃ patvā ativiya jigucchaniyāni jāyanti.",
+              "english": "but, when applied to this putrid body, they become exceedingly disgusting."
+            }
+          ]
+        },
+        {
+          "entries": [
+            {
+              "id": "m10-7",
+              "kind": "line",
+              "pali": "Yathāpaccayaṃ pavattamānaṃ dhātumattamevetaṃ,",
+              "english": "Arising according to conditions, this is merely a mass of elements,"
+            },
+            {
+              "id": "m10-8",
+              "kind": "line",
+              "pali": "yadidaṃ piṇḍapāto,",
+              "english": "namely this almsfood,"
+            },
+            {
+              "id": "m10-9",
+              "kind": "line",
+              "pali": "tadupabhuñjako ca puggalo dhātumattako nissatto nijjīvo suñño,",
+              "english": "and the person who eats it is also just elements, devoid of self, lifeless, empty,"
+            },
+            {
+              "id": "m10-10",
+              "kind": "line",
+              "pali": "sabbo panāyaṃ piṇḍapāto ajigucchaniyo",
+              "english": "yet this whole almsfood itself is not disgusting"
+            },
+            {
+              "id": "m10-11",
+              "kind": "line",
+              "pali": "imaṃ pūtikāyaṃ patvā ativiya jigucchaniyo jāyati.",
+              "english": "but, on reaching this putrid body, it becomes exceedingly disgusting."
+            }
+          ]
+        },
+        {
+          "entries": [
+            {
+              "id": "m10-12",
+              "kind": "line",
+              "pali": "Yathāpaccayaṃ pavattamānaṃ dhātumattamevetaṃ,",
+              "english": "Arising according to conditions, this is merely a mass of elements,"
+            },
+            {
+              "id": "m10-13",
+              "kind": "line",
+              "pali": "yadidaṃ senāsanaṃ,",
+              "english": "namely this lodging,"
+            },
+            {
+              "id": "m10-14",
+              "kind": "line",
+              "pali": "tadupabhuñjako ca puggalo dhātumattako nissatto nijjīvo suñño,",
+              "english": "and the person who uses it is also just elements, devoid of self, lifeless, empty,"
+            },
+            {
+              "id": "m10-15",
+              "kind": "line",
+              "pali": "sabbāni pana imāni senāsanāni ajigucchaniyāni",
+              "english": "yet all these lodgings themselves are not disgusting"
+            },
+            {
+              "id": "m10-16",
+              "kind": "line",
+              "pali": "imaṃ pūtikāyaṃ patvā ativiya jigucchaniyāni jāyanti.",
+              "english": "but, in connection with this putrid body, they become exceedingly disgusting."
+            }
+          ]
+        },
+        {
+          "entries": [
+            {
+              "id": "m10-17",
+              "kind": "line",
+              "pali": "Yathāpaccayaṃ pavattamānaṃ dhātumattamevetaṃ,",
+              "english": "Arising according to conditions, this is merely a mass of elements,"
+            },
+            {
+              "id": "m10-18",
+              "kind": "line",
+              "pali": "yadidaṃ gilānapaccayabhesajjaparikkhāro,",
+              "english": "namely medicines and requisites for the sick,"
+            },
+            {
+              "id": "m10-19",
+              "kind": "line",
+              "pali": "tadupabhuñjako ca puggalo dhātumattako nissatto nijjīvo suñño,",
+              "english": "and the person who uses them is also just elements, devoid of self, lifeless, empty,"
+            },
+            {
+              "id": "m10-20",
+              "kind": "line",
+              "pali": "sabbo panāyaṃ gilānapaccaya-bhesajjaparikkhāro ajigucchaniyo",
+              "english": "yet this whole support of medicines for the sick is itself not disgusting"
+            },
+            {
+              "id": "m10-21",
+              "kind": "line",
+              "pali": "imaṃ pūtikāyaṃ patvā ativiya jigucchaniyo jāyati.",
+              "english": "but, when it comes to this putrid body, it becomes exceedingly disgusting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m11",
+      "title": "Pattidāna-gāthā",
+      "source": "booklet/m11-Pattidanagatha.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m11-1",
+              "kind": "note",
+              "pali": "Handa mayaṃ pattidāna gāthāyo bhaṇāma se",
+              "english": "Now let us recite the verses for sharing merit."
+            },
+            {
+              "id": "m11-2",
+              "kind": "line",
+              "pali": "Yā devatā santi vihāravāsinī,",
+              "english": "May the devas who dwell in this monastery,"
+            },
+            {
+              "id": "m11-3",
+              "kind": "line",
+              "pali": "thūpe ghare bodhighare tahiṃ tahiṃ,",
+              "english": "in the stupa, the buildings, and the Bodhi-tree enclosure, here and there,"
+            },
+            {
+              "id": "m11-4",
+              "kind": "line",
+              "pali": "tā dhammadānena bhavantu pūjitā,",
+              "english": "be honoured through this gift of Dhamma,"
+            },
+            {
+              "id": "m11-5",
+              "kind": "line",
+              "pali": "sotthiṃ karontedha vihāramaṇḍale,",
+              "english": "and bring safety and well-being to this monastery compound."
+            },
+            {
+              "id": "m11-6",
+              "kind": "line",
+              "pali": "therā ca majjhā navakā ca bhikkhavo,",
+              "english": "May elder, intermediate, and newly ordained monks,"
+            },
+            {
+              "id": "m11-7",
+              "kind": "line",
+              "pali": "sārāmikā dānapatī upāsakā,",
+              "english": "temple attendants, donors, and lay followers,"
+            },
+            {
+              "id": "m11-8",
+              "kind": "line",
+              "pali": "gāmā ca desā nigamā ca issarā,",
+              "english": "villages, districts, towns, and their rulers,"
+            },
+            {
+              "id": "m11-9",
+              "kind": "line",
+              "pali": "sappāṇabhūtā sukhitā bhavantu te,",
+              "english": "and all beings endowed with life, be happy."
+            },
+            {
+              "id": "m11-10",
+              "kind": "line",
+              "pali": "jalābujā yepi ca aṇḍasambhavā,",
+              "english": "Those born from the womb and those who come from an egg,"
+            },
+            {
+              "id": "m11-11",
+              "kind": "line",
+              "pali": "saṃsedajātā athavopapātikā,",
+              "english": "those born from moisture, or who arise spontaneously,"
+            },
+            {
+              "id": "m11-12",
+              "kind": "line",
+              "pali": "niyyānikaṃ dhammavaraṃ paṭicca te,",
+              "english": "having relied on the excellent Dhamma that leads out of suffering,"
+            },
+            {
+              "id": "m11-13",
+              "kind": "line",
+              "pali": "sabbepi dukkhassa karontu saṅkhayaṃ,",
+              "english": "may they all bring about the ending of suffering."
+            },
+            {
+              "id": "m11-14",
+              "kind": "line",
+              "pali": "thātu ciraṃ sataṃ dhammo, dhammaddharā ca puggalā,",
+              "english": "May the Dhamma of the good endure for a long time, together with the individuals who uphold the Dhamma."
+            },
+            {
+              "id": "m11-15",
+              "kind": "line",
+              "pali": "saṅgho hotu samaggo va, atthāya ca hitāya ca,",
+              "english": "May the Sangha remain harmonious, for welfare and for benefit."
+            },
+            {
+              "id": "m11-16",
+              "kind": "line",
+              "pali": "amhe rakkhatu saddhammo, sabbepi dhammacārino,",
+              "english": "May the true Dhamma protect us and all who practise in accordance with the Dhamma."
+            },
+            {
+              "id": "m11-17",
+              "kind": "line",
+              "pali": "vuḍḍhiṃ sampāpuṇeyyāma, dhamme ariyappavedite.",
+              "english": "May we attain growth and fulfilment in the Dhamma taught and proclaimed by the Noble Ones."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m12",
+      "title": "Ovāda-pāṭimokkha-gāthā",
+      "source": "booklet/m12-Ovada-patimokkha-gatha.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m12-1",
+              "kind": "note",
+              "pali": "Handa mayaṃ buddhassa ovādanusāsaniyo bhaṇāmase",
+              "english": "Now let us recite the Buddha's words of advice and instruction."
+            }
+          ]
+        },
+        {
+          "entries": [
+            {
+              "id": "m12-2",
+              "kind": "note",
+              "pali": "Khantī paramaṃ tapo titikkhā,",
+              "english": "Patience is the supreme purifying practice,"
+            },
+            {
+              "id": "m12-3",
+              "kind": "note",
+              "pali": "Nibbānaṃ paramaṃ vadanti Buddhā,",
+              "english": "Nibbāna is supreme, say the Buddhas."
+            },
+            {
+              "id": "m12-4",
+              "kind": "note",
+              "pali": "Na hi pabbajito parūpaghātī, samaṇo hoti paraṃ viheṭhayanto.",
+              "english": "A mendicant does not harm others, a recluse oppresses no one."
+            },
+            {
+              "id": "m12-5",
+              "kind": "note",
+              "pali": "Etaṃ Buddhānaṃ sāsanaṃ.",
+              "english": "This is the teaching of all Buddhas."
+            },
+            {
+              "id": "m12-6",
+              "kind": "note",
+              "pali": "Sabbapāpassa akaraṇaṃ,",
+              "english": "Abstaining from all evil,"
+            },
+            {
+              "id": "m12-7",
+              "kind": "note",
+              "pali": "kusalassūpasampadā,",
+              "english": "cultivating the wholesome,"
+            },
+            {
+              "id": "m12-8",
+              "kind": "note",
+              "pali": "sacittapariyodapanaṃ,",
+              "english": "cleansing of one's own mind,"
+            },
+            {
+              "id": "m12-9",
+              "kind": "note",
+              "pali": "etaṃ Buddhānaṃ sāsanaṃ.",
+              "english": "This is the teaching of all Buddhas."
+            },
+            {
+              "id": "m12-10",
+              "kind": "note",
+              "pali": "anūpavādo,",
+              "english": "not insulting,"
+            },
+            {
+              "id": "m12-11",
+              "kind": "note",
+              "pali": "anūpaghāto,",
+              "english": "not harming,"
+            },
+            {
+              "id": "m12-12",
+              "kind": "note",
+              "pali": "pāṭimokkhe ca saṃvaro,",
+              "english": "carefulness in the Fundamental Precepts,"
+            },
+            {
+              "id": "m12-13",
+              "kind": "note",
+              "pali": "mattaññutā ca bhattasmiṃ,",
+              "english": "moderation in food,"
+            },
+            {
+              "id": "m12-14",
+              "kind": "note",
+              "pali": "pantañca sayanāsanaṃ,",
+              "english": "dwelling in solitude,"
+            },
+            {
+              "id": "m12-15",
+              "kind": "note",
+              "pali": "adhicitte ca āyogo,",
+              "english": "engaging in higher mental development,"
+            },
+            {
+              "id": "m12-16",
+              "kind": "note",
+              "pali": "etaṃ Buddhānaṃ sāsanaṃ.",
+              "english": "This is the teaching of all Buddhas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m13",
+      "title": "Mettā Chanting (Spreading Loving Kindness)",
+      "source": "booklet/m13-metta.tex",
+      "footerNotes": [],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m13-1",
+              "kind": "line",
+              "pali": "Sabbe sattā",
+              "english": "All beings: All beings are our companions, born, growing old, falling ill, and dying together."
+            },
+            {
+              "id": "m13-2",
+              "kind": "line",
+              "pali": "averā",
+              "english": "free from enmity: May we truly be happy and never use violence against one another."
+            },
+            {
+              "id": "m13-3",
+              "kind": "line",
+              "pali": "abyāpajjhā",
+              "english": "free from ill will: May we truly be happy and never injure or oppress each other."
+            },
+            {
+              "id": "m13-4",
+              "kind": "line",
+              "pali": "anīghā",
+              "english": "free from affliction: May we truly be happy and have no suffering of body or mind at all."
+            },
+            {
+              "id": "m13-5",
+              "kind": "line",
+              "pali": "sukhī attānaṃ pariharantu",
+              "english": "May they dwell in happiness: May you have happiness of body and mind, protecting yourselves from all suffering; may those who suffer find happiness, and may those who are happy grow even happier."
+            },
+            {
+              "id": "m13-6",
+              "kind": "line",
+              "pali": "sabbe sattā",
+              "english": "all beings: All beings who are egg-born, womb-born, moisture-born, or spontaneously born: may they receive this wholesome merit and blessing, each and every one."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m14",
+      "title": "Ratanattayanāmakārapātha",
+      "source": "booklet/m14-Ratanattayanamakarapatha.tex",
+      "footerNotes": [
+        "This saying shows respect for the Triple Gem, firms faith in it, and keeps a close relationship with it in mind. It serves as a preliminary step that will make the attainment of Dhammakaya (the Body of Truth) more accessible.",
+        "End of the morning chanting"
+      ],
+      "subsections": [
+        {
+          "entries": [
+            {
+              "id": "m14-1",
+              "kind": "note",
+              "pali": "Arahaṃ sammāsambuddho bhagavā, buddhaṃ bhagavantaṃ abhivādemi.",
+              "english": ""
+            },
+            {
+              "id": "m14-2",
+              "kind": "note",
+              "pali": "--- bow down and chant softly ---",
+              "english": ""
+            },
+            {
+              "id": "m14-3",
+              "kind": "note",
+              "pali": "“buddho me nātho.",
+              "english": "The Buddha is my refuge.”"
+            },
+            {
+              "id": "m14-4",
+              "kind": "note",
+              "pali": "Svākkhāto bhagavatā dhammo, dhammaṃ namassāmi.",
+              "english": ""
+            },
+            {
+              "id": "m14-5",
+              "kind": "note",
+              "pali": "--- bow down and chant softly ---",
+              "english": ""
+            },
+            {
+              "id": "m14-6",
+              "kind": "note",
+              "pali": "“dhammo me nātho.",
+              "english": "The Dhamma is my refuge.”"
+            },
+            {
+              "id": "m14-7",
+              "kind": "note",
+              "pali": "Supaṭipanno bhagavato sāvaka-saṅgho, saṅghaṃ namāmi.",
+              "english": ""
+            },
+            {
+              "id": "m14-8",
+              "kind": "note",
+              "pali": "--- bow down and chant softly ---",
+              "english": ""
+            },
+            {
+              "id": "m14-9",
+              "kind": "note",
+              "pali": "“saṅgho me nātho.",
+              "english": "The Saṅgha is my refuge.”"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
