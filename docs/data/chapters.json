@@ -1272,7 +1272,8 @@
               "id": "m14-1",
               "kind": "line",
               "pali": "Arahaṃ sammāsambuddho bhagavā, buddhaṃ bhagavantaṃ abhivādemi.",
-              "english": "The Blessed One is an arahant, perfectly awakened; to the Buddha, the Blessed One, I pay homage."
+              "english": "The Blessed One is an arahant, perfectly awakened; to the Buddha, the Blessed One, I pay homage.",
+              "display": "bilingual"
             },
             {
               "id": "m14-2",
@@ -1291,7 +1292,8 @@
               "id": "m14-4",
               "kind": "line",
               "pali": "Svākkhāto bhagavatā dhammo, dhammaṃ namassāmi.",
-              "english": "The Dhamma is well expounded by the Blessed One; to the Dhamma I pay homage."
+              "english": "The Dhamma is well expounded by the Blessed One; to the Dhamma I pay homage.",
+              "display": "bilingual"
             },
             {
               "id": "m14-5",
@@ -1310,7 +1312,8 @@
               "id": "m14-7",
               "kind": "line",
               "pali": "Supaṭipanno bhagavato sāvaka-saṅgho, saṅghaṃ namāmi.",
-              "english": "The Sangha of the Blessed One's disciples has practiced well; to the Sangha I pay homage."
+              "english": "The Sangha of the Blessed One's disciples has practiced well; to the Sangha I pay homage.",
+              "display": "bilingual"
             },
             {
               "id": "m14-8",
@@ -2423,7 +2426,8 @@
               "id": "e14-1",
               "kind": "line",
               "pali": "Arahaṃ sammāsambuddho bhagavā, buddhaṃ bhagavantaṃ abhivādemi.",
-              "english": "The Blessed One is an arahant, perfectly awakened; to the Buddha, the Blessed One, I pay homage."
+              "english": "The Blessed One is an arahant, perfectly awakened; to the Buddha, the Blessed One, I pay homage.",
+              "display": "bilingual"
             },
             {
               "id": "e14-2",
@@ -2442,7 +2446,8 @@
               "id": "e14-4",
               "kind": "line",
               "pali": "Svākkhāto bhagavatā dhammo, dhammaṃ namassāmi.",
-              "english": "The Dhamma is well expounded by the Blessed One; to the Dhamma I pay homage."
+              "english": "The Dhamma is well expounded by the Blessed One; to the Dhamma I pay homage.",
+              "display": "bilingual"
             },
             {
               "id": "e14-5",
@@ -2461,7 +2466,8 @@
               "id": "e14-7",
               "kind": "line",
               "pali": "Supaṭipanno bhagavato sāvaka-saṅgho, saṅghaṃ namāmi.",
-              "english": "The Sangha of the Blessed One's disciples has practiced well; to the Sangha I pay homage."
+              "english": "The Sangha of the Blessed One's disciples has practiced well; to the Sangha I pay homage.",
+              "display": "bilingual"
             },
             {
               "id": "e14-8",

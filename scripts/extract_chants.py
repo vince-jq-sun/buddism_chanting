@@ -349,6 +349,9 @@ def normalize_subsection(tokens: Iterable[RawToken], *, body_mode: str = "toggle
             target = attach_translation_target(entries)
             if target is not None:
                 target.english = f"{target.english} {text}".strip()
+                if body_mode == "bilingual" and target.pali and target.english:
+                    if not (target.kind == "note" and is_prompt_like(target.pali)):
+                        target.display = "bilingual"
             else:
                 entries.append(Entry(kind="note", pali="", english=text))
             i += 1
