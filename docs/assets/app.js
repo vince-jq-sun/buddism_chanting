@@ -29,6 +29,10 @@ let chapterDrawer;
 let chapterDrawerClose;
 let chapterDrawerBackdrop;
 let chapterDirectory;
+let helpToggle;
+let helpModal;
+let helpClose;
+let helpBackdrop;
 let fontDown;
 let fontUp;
 let fontSizeLabel;
@@ -64,6 +68,10 @@ function cacheElements() {
   chapterDrawerClose = document.querySelector('#chapter-drawer-close');
   chapterDrawerBackdrop = document.querySelector('#chapter-drawer-backdrop');
   chapterDirectory = document.querySelector('#chapter-directory');
+  helpToggle = document.querySelector('#help-toggle');
+  helpModal = document.querySelector('#help-modal');
+  helpClose = document.querySelector('#help-close');
+  helpBackdrop = document.querySelector('#help-backdrop');
   fontDown = document.querySelector('#font-down');
   fontUp = document.querySelector('#font-up');
   fontSizeLabel = document.querySelector('#font-size-label');
@@ -161,6 +169,20 @@ function closeChapterDrawer() {
   chapterDrawer.setAttribute('aria-hidden', 'true');
   chapterDrawerBackdrop.hidden = true;
   chapterMenuToggle.setAttribute('aria-expanded', 'false');
+}
+
+function openHelpModal() {
+  helpModal.classList.add('open');
+  helpModal.setAttribute('aria-hidden', 'false');
+  helpBackdrop.hidden = false;
+  helpToggle.setAttribute('aria-expanded', 'true');
+}
+
+function closeHelpModal() {
+  helpModal.classList.remove('open');
+  helpModal.setAttribute('aria-hidden', 'true');
+  helpBackdrop.hidden = true;
+  helpToggle.setAttribute('aria-expanded', 'false');
 }
 
 function setActiveChapter(chapterId) {
@@ -456,11 +478,24 @@ function bindEvents() {
   });
   chapterDrawerClose?.addEventListener('click', closeChapterDrawer);
   chapterDrawerBackdrop?.addEventListener('click', closeChapterDrawer);
+  helpToggle?.addEventListener('click', () => {
+    if (helpModal.classList.contains('open')) {
+      closeHelpModal();
+      return;
+    }
+    openHelpModal();
+  });
+  helpClose?.addEventListener('click', closeHelpModal);
+  helpBackdrop?.addEventListener('click', closeHelpModal);
   drawerClose?.addEventListener('click', closeDrawer);
   drawerBackdrop?.addEventListener('click', closeDrawer);
   chapterView?.addEventListener('scroll', queueActiveChapterUpdate, { passive: true });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
+      if (helpModal?.classList.contains('open')) {
+        closeHelpModal();
+        return;
+      }
       if (chapterDrawer?.classList.contains('open')) {
         closeChapterDrawer();
         return;

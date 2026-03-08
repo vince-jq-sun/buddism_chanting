@@ -24,16 +24,28 @@
       </main>
 
       <nav class="toolbar" aria-label="Reader tools">
-        <button
-          id="chapter-menu-toggle"
-          class="toolbar-button chapter-menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="chapter-drawer"
-        >
-          <span class="menu-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Open chapter directory</span>
-        </button>
+        <div class="toolbar-leading">
+          <button
+            id="chapter-menu-toggle"
+            class="toolbar-button chapter-menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="chapter-drawer"
+          >
+            <span class="menu-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Open chapter directory</span>
+          </button>
+          <button
+            id="help-toggle"
+            class="toolbar-button help-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="help-modal"
+            aria-label="Open help and acknowledgments"
+          >
+            <span class="help-icon" aria-hidden="true">?</span>
+          </button>
+        </div>
         <div class="font-widget" aria-label="Font size controls">
           <button id="font-down" type="button" aria-label="Decrease font size">-</button>
           <span id="font-size-label">100%</span>
@@ -58,6 +70,50 @@
     </aside>
 
     <div id="chapter-drawer-backdrop" class="chapter-drawer-backdrop" hidden></div>
+
+    <div id="help-backdrop" class="help-backdrop" hidden></div>
+
+    <section
+      id="help-modal"
+      class="help-modal"
+      aria-hidden="true"
+      aria-labelledby="help-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="help-modal-header">
+        <p class="drawer-label">About</p>
+        <button id="help-close" class="help-close" type="button" aria-label="Close help">
+          Close
+        </button>
+      </div>
+      <div class="help-modal-body">
+        <section class="help-section">
+          <h2 id="help-title" class="help-title">How to use</h2>
+          <p>
+            Tap the chapter button to open the chapter list and jump to any section.
+            Tap a Pali line to view its English translation.
+            Use the minus and plus buttons to adjust the text size for easier reading.
+          </p>
+        </section>
+
+        <section class="help-section">
+          <h3 class="help-subtitle">Acknowledgment</h3>
+          <p>
+            The main text in this app is based primarily on the printed chanting booklet used by the compiler,
+            with additional reference to <em>A Little Book of Buddhist Chanting</em>.
+            English translations were prepared with assistance from GPT and Gemini, then reviewed and adapted for this edition.
+            Copyright for the original source materials remains with their respective publishers and authors.
+          </p>
+        </section>
+
+        <section class="help-section">
+          <h3 class="help-subtitle">Credits</h3>
+          <p>Compiled by Jiaqiu Vince Sun.</p>
+          <p><a href="https://jvsun.com" target="_blank" rel="noreferrer">jvsun.com</a></p>
+        </section>
+      </div>
+    </section>
 
     <aside id="translation-drawer" class="translation-drawer" aria-hidden="true">
       <div class="drawer-handle" aria-hidden="true"></div>
