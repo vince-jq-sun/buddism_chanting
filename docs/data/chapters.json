@@ -84,24 +84,36 @@
             },
             {
               "id": "m2-2",
-              "kind": "note",
-              "pali": "Buddhaṃ bhagavantaṃ abhivādemi --- bow ---",
+              "kind": "line",
+              "pali": "Buddhaṃ bhagavantaṃ abhivādemi",
               "english": "To the Buddha, the Blessed One, I pay homage."
             },
             {
               "id": "m2-3",
               "kind": "note",
-              "pali": "Svākkhāto bhagavatā dhammo dhammaṃ namassāmi --- bow ---",
-              "english": "The Dhamma is well expounded by the Blessed One; to the Dhamma I pay homage."
+              "pali": "--- bow ---",
+              "english": ""
             },
             {
               "id": "m2-4",
+              "kind": "line",
+              "pali": "Svākkhāto bhagavatā dhammo dhammaṃ namassāmi",
+              "english": "The Dhamma is well expounded by the Blessed One; to the Dhamma I pay homage."
+            },
+            {
+              "id": "m2-5",
+              "kind": "note",
+              "pali": "--- bow ---",
+              "english": ""
+            },
+            {
+              "id": "m2-6",
               "kind": "line",
               "pali": "Supaṭipanno bhagavato sāvakasaṅgho saṅghaṃ namāmi",
               "english": "The Sangha of the Blessed One’s disciples has practiced well; to the Sangha I pay homage."
             },
             {
-              "id": "m2-5",
+              "id": "m2-7",
               "kind": "note",
               "pali": "--- bow ---",
               "english": ""
@@ -230,9 +242,15 @@
             },
             {
               "id": "m4-14",
-              "kind": "note",
-              "pali": "Tamahaṃ bhagavantaṃ sirasā namāmi --- bow ---",
+              "kind": "line",
+              "pali": "Tamahaṃ bhagavantaṃ sirasā namāmi",
               "english": "To that Blessed One I bow my head."
+            },
+            {
+              "id": "m4-15",
+              "kind": "note",
+              "pali": "--- bow ---",
+              "english": ""
             }
           ]
         }
@@ -279,9 +297,15 @@
             },
             {
               "id": "m5-6",
-              "kind": "note",
-              "pali": "Tamahaṃ dhammaṃ sirasā namāmi --- bow ---",
+              "kind": "line",
+              "pali": "Tamahaṃ dhammaṃ sirasā namāmi",
               "english": "To this Dhamma I bow my head."
+            },
+            {
+              "id": "m5-7",
+              "kind": "note",
+              "pali": "--- bow ---",
+              "english": ""
             }
           ]
         }
@@ -358,9 +382,15 @@
             },
             {
               "id": "m6-11",
-              "kind": "note",
-              "pali": "Tamahaṃ saṅghaṃ sirasā namāmi --- bow ---",
+              "kind": "line",
+              "pali": "Tamahaṃ saṅghaṃ sirasā namāmi",
               "english": "To this Sangha I bow my head."
+            },
+            {
+              "id": "m6-12",
+              "kind": "note",
+              "pali": "--- bow ---",
+              "english": ""
             }
           ]
         }
