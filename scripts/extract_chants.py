@@ -10,11 +10,12 @@ from typing import Iterable
 ROOT = Path(__file__).resolve().parents[1]
 BOOKLET_DIR = ROOT / "booklet"
 OUTPUT = ROOT / "docs" / "data" / "chapters.json"
-SKIP_FILES = {"s02-homage-to-great-master.tex"}
-CHANT_FILES = sorted(
-    [path for path in BOOKLET_DIR.glob("m*.tex") if path.name not in SKIP_FILES],
-    key=lambda path: path.name,
-)
+CHANT_GLOB_ORDER = ("m*.tex", "e*.tex", "s*.tex")
+CHANT_FILES = [
+    path
+    for pattern in CHANT_GLOB_ORDER
+    for path in sorted(BOOKLET_DIR.glob(pattern), key=lambda candidate: candidate.name)
+]
 
 TITLE_RE = re.compile(r"\\section\*\{([^}]*)\}")
 SUBSECTION_RE = re.compile(
@@ -80,6 +81,18 @@ def clean_text(text: str) -> str:
     text = re.sub(r"\s+([,.;:?!])", r"\1", text)
     text = text.replace("``", '"').replace("''", '"')
     return text.strip()
+
+
+def infer_short_code(path: Path) -> str:
+    stem = path.stem
+    return stem.split("-", 1)[0]
+
+
+def normalize_identifier(text: str) -> str:
+    text = text.replace(r"\&", "-")
+    text = clean_text(text).lower()
+    text = re.sub(r"[^a-z0-9]+", "-", text)
+    return re.sub(r"-+", "-", text).strip("-")
 
 
 def read_braced(text: str, start: int) -> tuple[str, int]:
@@ -322,8 +335,16 @@ def parse_chapter(path: Path) -> dict:
     if title_match is None:
         raise ValueError(f"Missing section title in {path.name}")
 
-    raw_title = title_match.group(1)
-    short_code, title = [clean_text(part) for part in raw_title.split("|", 1)]
+    raw_title = title_match.group(1).strip()
+    if "|" in raw_title:
+        raw_short_code, raw_chapter_title = raw_title.split("|", 1)
+        short_code = clean_text(raw_short_code)
+        title = clean_text(raw_chapter_title)
+    else:
+        short_code = infer_short_code(path)
+        title = clean_text(raw_title)
+
+    chapter_id = normalize_identifier(short_code) or normalize_identifier(path.stem)
     subsections = []
     entry_index = 0
 
@@ -336,7 +357,7 @@ def parse_chapter(path: Path) -> dict:
             entry_index += 1
             entries.append(
                 {
-                    "id": f"{short_code.lower()}-{entry_index}",
+                    "id": f"{chapter_id}-{entry_index}",
                     "kind": entry.kind,
                     "pali": entry.pali,
                     "english": entry.english,
@@ -346,7 +367,7 @@ def parse_chapter(path: Path) -> dict:
             subsections.append({"entries": entries})
 
     return {
-        "id": short_code.lower(),
+        "id": chapter_id,
         "title": title,
         "source": str(path.relative_to(ROOT)),
         "footerNotes": parse_footer_notes(raw),
