@@ -1,9 +1,12 @@
 const STORAGE_KEYS = {
   chapter: 'chanting.selectedChapter',
   fontScale: 'chanting.fontScale.v3',
+  language: 'chanting.bodyLanguage.v1',
 };
 
 const DEFAULT_FONT_SCALE = 1;
+const DEFAULT_LANGUAGE = 'pli';
+const SUPPORTED_LANGUAGES = ['pli', 'en'];
 const MIN_SCALE = 0.6;
 const MAX_SCALE = 1.3;
 const STEP = 0.05;
@@ -33,6 +36,7 @@ let helpToggle;
 let helpModal;
 let helpClose;
 let helpBackdrop;
+let languageToggle;
 let fontDown;
 let fontUp;
 let fontSizeLabel;
@@ -48,6 +52,7 @@ let directoryButtons = new Map();
 let directoryGroups = new Map();
 let activeEntryElement = null;
 let activeChapterId = localStorage.getItem(STORAGE_KEYS.chapter) || '';
+let bodyLanguage = normalizeLanguage(localStorage.getItem(STORAGE_KEYS.language));
 let fontScale = clamp(
   Number(localStorage.getItem(STORAGE_KEYS.fontScale)) || DEFAULT_FONT_SCALE,
   MIN_SCALE,
@@ -57,6 +62,10 @@ let scrollFrame = 0;
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
+}
+
+function normalizeLanguage(value) {
+  return SUPPORTED_LANGUAGES.includes(value) ? value : DEFAULT_LANGUAGE;
 }
 
 function cacheElements() {
@@ -72,6 +81,7 @@ function cacheElements() {
   helpModal = document.querySelector('#help-modal');
   helpClose = document.querySelector('#help-close');
   helpBackdrop = document.querySelector('#help-backdrop');
+  languageToggle = document.querySelector('#language-toggle');
   fontDown = document.querySelector('#font-down');
   fontUp = document.querySelector('#font-up');
   fontSizeLabel = document.querySelector('#font-size-label');
@@ -129,6 +139,113 @@ function saveFontScale(nextScale) {
   localStorage.setItem(STORAGE_KEYS.fontScale, String(fontScale));
 }
 
+function syncLanguageToggle() {
+  if (!languageToggle) {
+    return;
+  }
+
+  languageToggle.textContent = bodyLanguage;
+  languageToggle.setAttribute(
+    'aria-label',
+    `Switch body text language. Current language: ${bodyLanguage === 'pli' ? 'Pali' : 'English'}.`,
+  );
+}
+
+function getPrimaryEntryText(entry) {
+  if (bodyLanguage === 'en' && entry.english) {
+    return entry.english;
+  }
+  return entry.pali || entry.english || '';
+}
+
+function getAlternateEntryText(entry) {
+  if (bodyLanguage === 'en') {
+    return entry.english ? entry.pali || '' : '';
+  }
+  return entry.english || '';
+}
+
+function getChapterScrollTop(element) {
+  if (!chapterView || !element) {
+    return 0;
+  }
+  return chapterView.scrollTop + element.getBoundingClientRect().top - chapterView.getBoundingClientRect().top;
+}
+
+function getCurrentVisibleChapterId() {
+  if (!chapterView) {
+    return activeChapterId;
+  }
+
+  const viewportTop = chapterView.getBoundingClientRect().top;
+  let nextActiveId = chapters[0]?.id || '';
+
+  chapters.forEach((chapter) => {
+    const element = chapterElements.get(chapter.id);
+    if (!element) {
+      return;
+    }
+
+    const distanceFromTop = element.getBoundingClientRect().top - viewportTop;
+    if (distanceFromTop <= ACTIVE_CHAPTER_OFFSET) {
+      nextActiveId = chapter.id;
+    }
+  });
+
+  return nextActiveId;
+}
+
+function captureChapterPosition() {
+  const chapterId = getCurrentVisibleChapterId() || activeChapterId || chapters[0]?.id || '';
+  const element = chapterElements.get(chapterId);
+  if (!chapterId || !chapterView || !element) {
+    return { chapterId, offset: 0 };
+  }
+
+  return {
+    chapterId,
+    offset: Math.max(0, chapterView.scrollTop - getChapterScrollTop(element)),
+  };
+}
+
+function restoreChapterPosition(position) {
+  if (!position?.chapterId || !chapterView) {
+    return;
+  }
+
+  const element = chapterElements.get(position.chapterId);
+  if (!element) {
+    return;
+  }
+
+  chapterView.scrollTop = Math.max(0, getChapterScrollTop(element) + (position.offset || 0));
+  setActiveChapter(position.chapterId);
+  queueActiveChapterUpdate();
+}
+
+function setBodyLanguage(nextLanguage) {
+  const normalizedLanguage = normalizeLanguage(nextLanguage);
+  if (bodyLanguage === normalizedLanguage) {
+    syncLanguageToggle();
+    return;
+  }
+
+  if (!chapters.length) {
+    bodyLanguage = normalizedLanguage;
+    localStorage.setItem(STORAGE_KEYS.language, bodyLanguage);
+    syncLanguageToggle();
+    return;
+  }
+
+  const position = captureChapterPosition();
+
+  bodyLanguage = normalizedLanguage;
+  localStorage.setItem(STORAGE_KEYS.language, bodyLanguage);
+  syncLanguageToggle();
+  renderChapters();
+  restoreChapterPosition(position);
+}
+
 function closeDrawer() {
   drawer.classList.remove('open');
   drawer.setAttribute('aria-hidden', 'true');
@@ -140,7 +257,8 @@ function closeDrawer() {
 }
 
 function openDrawer(entry, element) {
-  if (!entry.english) {
+  const alternateText = getAlternateEntryText(entry);
+  if (!alternateText) {
     return;
   }
 
@@ -150,8 +268,8 @@ function openDrawer(entry, element) {
 
   activeEntryElement = element;
   activeEntryElement.classList.add('highlighted');
-  drawerSource.textContent = entry.pali;
-  drawerTranslation.textContent = entry.english;
+  drawerSource.textContent = getPrimaryEntryText(entry);
+  drawerTranslation.textContent = alternateText;
   drawer.classList.add('open');
   drawer.setAttribute('aria-hidden', 'false');
   drawerBackdrop.hidden = false;
@@ -217,22 +335,7 @@ function scrollToChapter(chapterId, behavior = 'smooth') {
 }
 
 function updateActiveChapterFromScroll() {
-  const viewportTop = chapterView.getBoundingClientRect().top;
-  let nextActiveId = chapters[0]?.id || '';
-
-  chapters.forEach((chapter) => {
-    const element = chapterElements.get(chapter.id);
-    if (!element) {
-      return;
-    }
-
-    const distanceFromTop = element.getBoundingClientRect().top - viewportTop;
-    if (distanceFromTop <= ACTIVE_CHAPTER_OFFSET) {
-      nextActiveId = chapter.id;
-    }
-  });
-
-  setActiveChapter(nextActiveId);
+  setActiveChapter(getCurrentVisibleChapterId());
 }
 
 function queueActiveChapterUpdate() {
@@ -250,15 +353,16 @@ function createEntryElement(entry) {
   const fragment = entryTemplate.content.cloneNode(true);
   const button = fragment.querySelector('.entry');
   const text = fragment.querySelector('.entry-text');
+  const alternateText = getAlternateEntryText(entry);
 
-  text.textContent = entry.pali;
+  text.textContent = getPrimaryEntryText(entry);
   button.dataset.entryId = entry.id;
 
   if (entry.kind === 'note') {
     button.classList.add('entry-note');
   }
 
-  if (entry.english) {
+  if (alternateText) {
     button.classList.add('can-translate');
   }
 
@@ -268,7 +372,7 @@ function createEntryElement(entry) {
   let touchMoved = false;
 
   const beginTouch = (clientX, clientY) => {
-    if (!entry.english) {
+    if (!alternateText) {
       return;
     }
     startX = clientX;
@@ -288,7 +392,7 @@ function createEntryElement(entry) {
   };
 
   const endTouch = () => {
-    if (!touchStartTime || !entry.english) {
+    if (!touchStartTime || !alternateText) {
       touchStartTime = 0;
       return;
     }
@@ -330,7 +434,7 @@ function createEntryElement(entry) {
       event.preventDefault();
       return;
     }
-    if (entry.english) {
+    if (alternateText) {
       openDrawer(entry, button);
     }
   });
@@ -461,6 +565,7 @@ async function init() {
   }
 
   saveFontScale(fontScale);
+  syncLanguageToggle();
 
   const response = await fetch('./data/chapters.json');
   const payload = await response.json();
@@ -482,6 +587,9 @@ async function init() {
 function bindEvents() {
   fontDown?.addEventListener('click', () => saveFontScale(fontScale - STEP));
   fontUp?.addEventListener('click', () => saveFontScale(fontScale + STEP));
+  languageToggle?.addEventListener('click', () => {
+    setBodyLanguage(bodyLanguage === 'pli' ? 'en' : 'pli');
+  });
   chapterMenuToggle?.addEventListener('click', () => {
     if (chapterDrawer.classList.contains('open')) {
       closeChapterDrawer();

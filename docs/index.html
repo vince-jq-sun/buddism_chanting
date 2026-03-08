@@ -6,7 +6,7 @@
     <title>Buddhist Chanting</title>
     <meta
       name="description"
-      content="Mobile-first Pali chanting booklet with on-demand English translations."
+      content="Mobile-first Buddhist chanting booklet with switchable Pali and English main text."
     />
     <link rel="icon" href="data:," />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,6 +44,14 @@
             aria-label="Open help and acknowledgments"
           >
             <span class="help-icon" aria-hidden="true">?</span>
+          </button>
+          <button
+            id="language-toggle"
+            class="toolbar-button language-toggle"
+            type="button"
+            aria-label="Switch body text language"
+          >
+            pli
           </button>
         </div>
         <div class="font-widget" aria-label="Font size controls">
@@ -92,7 +100,8 @@
           <h2 id="help-title" class="help-subtitle">How to use</h2>
           <p>
             Tap the three-line menu button in the lower left corner to open the chapter list and jump to any section.
-            Tap a Pali line to view its English translation.
+            Tap the pli or en button next to the question mark to switch the main text language; lines without translation stay unchanged.
+            Tap a line to view the other language.
             Use the minus and plus buttons to adjust the text size for easier reading.
           </p>
         </section>
@@ -121,7 +130,7 @@
       <button id="drawer-close" class="drawer-close" type="button" aria-label="Close translation">
         Close
       </button>
-      <p class="drawer-label">Translation</p>
+      <p class="drawer-label">Other language</p>
       <p id="drawer-source" class="drawer-source"></p>
       <p id="drawer-translation" class="drawer-translation"></p>
     </aside>
