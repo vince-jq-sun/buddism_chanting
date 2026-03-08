@@ -10,8 +10,8 @@ const STEP = 0.05;
 const MOVE_THRESHOLD = 10;
 const TAP_MAX_MS = 280;
 const ACTIVE_CHAPTER_OFFSET = 72;
-const BASE_ENTRY_SIZE = 1.163;
-const BASE_NOTE_SIZE = 0.788;
+const BASE_ENTRY_SIZE = 1.21;
+const BASE_NOTE_SIZE = 0.82;
 
 const GROUP_ORDER = ['morning', 'evening', 'homage', 'other'];
 const GROUP_LABELS = {
@@ -427,7 +427,6 @@ function renderChapters() {
     article.dataset.chapterId = chapter.id;
     article.dataset.groupKey = groupKey;
 
-    fragment.querySelector('.chapter-id').textContent = chapter.id.toUpperCase();
     fragment.querySelector('.chapter-title').textContent = chapter.title;
 
     const content = fragment.querySelector('.chapter-content');

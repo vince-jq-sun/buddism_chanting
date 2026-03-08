@@ -89,6 +89,10 @@ button {
   font-weight: 600;
 }
 
+.chapter-id:empty {
+  display: none;
+}
+
 .group-break {
   padding: 0.45rem 0 0.85rem;
 }
@@ -282,7 +286,7 @@ button {
   left: 0;
   bottom: 0;
   z-index: 40;
-  width: min(24rem, calc(100vw - 2.4rem));
+  width: min(21.5rem, calc(100vw - 3.2rem));
   padding: 1rem 1rem 1.2rem;
   background: rgba(248, 241, 229, 0.97);
   box-shadow: 10px 0 30px rgba(50, 31, 18, 0.16);
@@ -452,15 +456,10 @@ button {
   padding-top: 0.15rem;
 }
 
-.help-title,
 .help-subtitle {
   margin: 0;
   font-family: "Cormorant Garamond", "Iowan Old Style", serif;
   font-weight: 600;
-}
-
-.help-title {
-  font-size: clamp(1.55rem, 5vw, 2rem);
 }
 
 .help-subtitle {
@@ -477,6 +476,10 @@ button {
   margin: 0;
   color: var(--text);
   line-height: 1.55;
+}
+
+.help-signature {
+  text-align: right;
 }
 
 .help-section a {
@@ -645,10 +648,6 @@ button {
     max-height: calc(100dvh - 1rem);
     padding: 0.95rem 0.95rem 1.05rem;
     border-radius: 1.1rem;
-  }
-
-  .help-title {
-    font-size: 1.45rem;
   }
 
   .help-subtitle {
