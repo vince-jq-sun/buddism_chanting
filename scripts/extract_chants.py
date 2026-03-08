@@ -18,6 +18,7 @@ CHANT_FILES = [
 ]
 
 TITLE_RE = re.compile(r"\\section\*\{([^}]*)\}")
+TITLE_EN_RE = re.compile(r"^\s*%\s*title-en:\s*(.+?)\s*$", re.M)
 SUBSECTION_RE = re.compile(
     r"\\begin\{chantsubsection\}(.*?)\\end\{chantsubsection\}", re.S
 )
@@ -330,7 +331,9 @@ def parse_footer_notes(text: str) -> list[str]:
 
 
 def parse_chapter(path: Path) -> dict:
-    raw = strip_comments(path.read_text(encoding="utf-8"))
+    source_text = path.read_text(encoding="utf-8")
+    title_english_match = TITLE_EN_RE.search(source_text)
+    raw = strip_comments(source_text)
     title_match = TITLE_RE.search(raw)
     if title_match is None:
         raise ValueError(f"Missing section title in {path.name}")
@@ -343,6 +346,7 @@ def parse_chapter(path: Path) -> dict:
     else:
         short_code = infer_short_code(path)
         title = clean_text(raw_title)
+    title_english = clean_text(title_english_match.group(1)) if title_english_match else title
 
     chapter_id = normalize_identifier(short_code) or normalize_identifier(path.stem)
     subsections = []
@@ -369,6 +373,7 @@ def parse_chapter(path: Path) -> dict:
     return {
         "id": chapter_id,
         "title": title,
+        "titleEnglish": title_english,
         "source": str(path.relative_to(ROOT)),
         "footerNotes": parse_footer_notes(raw),
         "subsections": subsections,

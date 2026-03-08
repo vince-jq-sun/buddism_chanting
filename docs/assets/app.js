@@ -158,6 +158,13 @@ function getPrimaryEntryText(entry) {
   return entry.pali || entry.english || '';
 }
 
+function getChapterTitle(chapter) {
+  if (bodyLanguage === 'en' && chapter.titleEnglish) {
+    return chapter.titleEnglish;
+  }
+  return chapter.title || chapter.titleEnglish || '';
+}
+
 function getAlternateEntryText(entry) {
   if (bodyLanguage === 'en') {
     return entry.english ? entry.pali || '' : '';
@@ -467,7 +474,7 @@ function renderDirectory() {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'directory-button';
-      button.textContent = `${chapter.id.toUpperCase()}  ${chapter.title}`;
+      button.textContent = `${chapter.id.toUpperCase()}  ${getChapterTitle(chapter)}`;
       button.addEventListener('click', () => {
         closeChapterDrawer();
         scrollToChapter(chapter.id);
@@ -531,7 +538,7 @@ function renderChapters() {
     article.dataset.chapterId = chapter.id;
     article.dataset.groupKey = groupKey;
 
-    fragment.querySelector('.chapter-title').textContent = chapter.title;
+    fragment.querySelector('.chapter-title').textContent = getChapterTitle(chapter);
 
     const content = fragment.querySelector('.chapter-content');
     chapter.subsections.forEach((subsection) => {

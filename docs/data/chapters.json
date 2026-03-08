@@ -3,6 +3,7 @@
     {
       "id": "m1",
       "title": "Ratanattaya-vandanā",
+      "titleEnglish": "Homage to the Triple Gem",
       "source": "booklet/m01-ratanattaya-vandana.tex",
       "footerNotes": [],
       "subsections": [
@@ -69,6 +70,7 @@
     {
       "id": "m2",
       "title": "Ratanattayanamakārapāṭha",
+      "titleEnglish": "Salutation to the Triple Gem",
       "source": "booklet/m02-ratanattayanamakarapatha.tex",
       "footerNotes": [],
       "subsections": [
@@ -111,6 +113,7 @@
     {
       "id": "m3",
       "title": "Pubbabhāganamakārapāṭha",
+      "titleEnglish": "Preliminary Salutation Verses",
       "source": "booklet/m03-pubbabhaga.tex",
       "footerNotes": [],
       "subsections": [
@@ -141,6 +144,7 @@
     {
       "id": "m4",
       "title": "Buddhābhithuti",
+      "titleEnglish": "Praise of the Buddha",
       "source": "booklet/m04-buddhabhithuti.tex",
       "footerNotes": [],
       "subsections": [
@@ -237,6 +241,7 @@
     {
       "id": "m5",
       "title": "Dhammābhithuti",
+      "titleEnglish": "Praise of the Dhamma",
       "source": "booklet/m05-dhammabhithuti.tex",
       "footerNotes": [],
       "subsections": [
@@ -285,6 +290,7 @@
     {
       "id": "m6",
       "title": "Saṅghābhithuti",
+      "titleEnglish": "Praise of the Sangha",
       "source": "booklet/m06-sanghabhithuti.tex",
       "footerNotes": [],
       "subsections": [
@@ -363,6 +369,7 @@
     {
       "id": "m7",
       "title": "Ratanattayappaṇāmagāthā",
+      "titleEnglish": "Verses of Reverence to the Triple Gem",
       "source": "booklet/m07-Ratanattayappaṇamagatha.tex",
       "footerNotes": [],
       "subsections": [
@@ -477,6 +484,7 @@
     {
       "id": "m8",
       "title": "Saṃvegaparikittanapāṭha",
+      "titleEnglish": "Chant on Spiritual Urgency",
       "source": "booklet/m08-Saṃvegaparikittanapaṭha.tex",
       "footerNotes": [],
       "subsections": [
@@ -611,6 +619,7 @@
     {
       "id": "m9",
       "title": "Taṅkhaṇika-paccavekkhaṇa-pāṭho",
+      "titleEnglish": "Reflection at the Time of Use",
       "source": "booklet/m09-Tankhanika-paccavekkhana-patho.tex",
       "footerNotes": [],
       "subsections": [
@@ -777,6 +786,7 @@
     {
       "id": "m10",
       "title": "Dhātupaṭikūla-paccavekkhaṇa-pāṭho",
+      "titleEnglish": "Reflection on the Repulsiveness of the Elements",
       "source": "booklet/m10-dhatupatikula-paccavekkhaṇa-paṭho.tex",
       "footerNotes": [],
       "subsections": [
@@ -927,6 +937,7 @@
     {
       "id": "m11",
       "title": "Pattidāna-gāthā",
+      "titleEnglish": "Verses for Sharing Merit",
       "source": "booklet/m11-Pattidanagatha.tex",
       "footerNotes": [],
       "subsections": [
@@ -1041,6 +1052,7 @@
     {
       "id": "m12",
       "title": "Ovāda-pāṭimokkha-gāthā",
+      "titleEnglish": "Verses on the Ovāda Pāṭimokkha",
       "source": "booklet/m12-Ovada-patimokkha-gatha.tex",
       "footerNotes": [],
       "subsections": [
@@ -1153,6 +1165,7 @@
     {
       "id": "m13",
       "title": "Mettā Chanting (Spreading Loving Kindness)",
+      "titleEnglish": "Mettā Chanting (Spreading Loving Kindness)",
       "source": "booklet/m13-metta.tex",
       "footerNotes": [],
       "subsections": [
@@ -1201,6 +1214,7 @@
     {
       "id": "m14",
       "title": "Ratanattayanāmakārapātha",
+      "titleEnglish": "Salutation to the Triple Gem",
       "source": "booklet/m14-Ratanattayanamakarapatha.tex",
       "footerNotes": [
         "This saying shows respect for the Triple Gem, firms faith in it, and keeps a close relationship with it in mind. It serves as a preliminary step that will make the attainment of Dhammakaya (the Body of Truth) more accessible.",
@@ -1270,6 +1284,7 @@
     {
       "id": "e1",
       "title": "Ratanattaya-vandanā",
+      "titleEnglish": "Homage to the Triple Gem",
       "source": "booklet/e01-ratanattaya-vandana.tex",
       "footerNotes": [],
       "subsections": [
@@ -1336,6 +1351,7 @@
     {
       "id": "e2",
       "title": "Ratanattayanamakārapāṭha",
+      "titleEnglish": "Salutation to the Triple Gem",
       "source": "booklet/e02-ratanattayanamakarapatha.tex",
       "footerNotes": [],
       "subsections": [
@@ -1390,6 +1406,7 @@
     {
       "id": "e3-e4",
       "title": "Pubbabhāganamakārapāṭha",
+      "titleEnglish": "Preliminary Salutation Verses",
       "source": "booklet/e03-04-Pubbabhaganamakarapatha.tex",
       "footerNotes": [],
       "subsections": [
@@ -1452,6 +1469,7 @@
     {
       "id": "e5",
       "title": "Buddhābhigīti",
+      "titleEnglish": "Chant in Praise of the Buddha",
       "source": "booklet/e05-Buddhabhigiti.tex",
       "footerNotes": [],
       "subsections": [
@@ -1600,6 +1618,7 @@
     {
       "id": "e6",
       "title": "Dhammānussati",
+      "titleEnglish": "Recollection of the Dhamma",
       "source": "booklet/e06-Dhammanussati.tex",
       "footerNotes": [],
       "subsections": [
@@ -1640,6 +1659,7 @@
     {
       "id": "e7",
       "title": "Dhammābhigīti",
+      "titleEnglish": "Chant in Praise of the Dhamma",
       "source": "booklet/e07-dhammabhigiti.tex",
       "footerNotes": [],
       "subsections": [
@@ -1742,6 +1762,7 @@
     {
       "id": "e8",
       "title": "Saṅghānussati",
+      "titleEnglish": "Recollection of the Sangha",
       "source": "booklet/e08-Sanghanussati.tex",
       "footerNotes": [],
       "subsections": [
@@ -1812,6 +1833,7 @@
     {
       "id": "e9",
       "title": "Saṅghābhigīti",
+      "titleEnglish": "Chant in Praise of the Sangha",
       "source": "booklet/e09-Sanghabhigiti.tex",
       "footerNotes": [],
       "subsections": [
@@ -1956,6 +1978,7 @@
     {
       "id": "e10",
       "title": "Atīta-paccavekkhaṇa-vidhi",
+      "titleEnglish": "Reflection on Past Use",
       "source": "booklet/e10-Atita-paccavekkhana-vidhi.tex",
       "footerNotes": [],
       "subsections": [
@@ -2082,6 +2105,7 @@
     {
       "id": "e11",
       "title": "Uddissanagāthā",
+      "titleEnglish": "Dedication Verses",
       "source": "booklet/e11-Uddissanagatha.tex",
       "footerNotes": [],
       "subsections": [
@@ -2200,6 +2224,7 @@
     {
       "id": "e12",
       "title": "Abhiṇha-paccavekkhaṇā-pāṭho",
+      "titleEnglish": "Daily Reflections",
       "source": "booklet/e12-Abhinhapaccavekkhanapatha.tex",
       "footerNotes": [],
       "subsections": [
@@ -2290,6 +2315,7 @@
     {
       "id": "e13",
       "title": "Mettā Chanting (Spreading Loving Kindness)",
+      "titleEnglish": "Mettā Chanting (Spreading Loving Kindness)",
       "source": "booklet/e13-metta.tex",
       "footerNotes": [],
       "subsections": [
@@ -2338,6 +2364,7 @@
     {
       "id": "e14",
       "title": "Ratanattayanāmakārapātha",
+      "titleEnglish": "Salutation to the Triple Gem",
       "source": "booklet/e14-ratanattayanamakarapatha.tex",
       "footerNotes": [
         "This saying shows respect for the Triple Gem, firms faith in it, and keeps a close relationship with it in mind. It serves as a preliminary step that will make the attainment of Dhammakaya (the Body of Truth) more accessible.",
@@ -2407,6 +2434,7 @@
     {
       "id": "s02",
       "title": "Homage to the Great Master Phramongkolthepmuni",
+      "titleEnglish": "Homage to the Great Master Phramongkolthepmuni",
       "source": "booklet/s02-homage-to-great-master.tex",
       "footerNotes": [],
       "subsections": [
