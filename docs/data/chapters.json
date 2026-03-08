@@ -1092,7 +1092,8 @@
               "id": "m12-1",
               "kind": "note",
               "pali": "Handa mayaṃ buddhassa ovādanusāsaniyo bhaṇāmase",
-              "english": "Now let us recite the Buddha's words of advice and instruction."
+              "english": "Now let us recite the Buddha's words of advice and instruction.",
+              "display": "bilingual"
             }
           ]
         },
@@ -1102,91 +1103,106 @@
               "id": "m12-2",
               "kind": "line",
               "pali": "Khantī paramaṃ tapo titikkhā,",
-              "english": "Patience is the supreme purifying practice,"
+              "english": "Patience is the supreme purifying practice,",
+              "display": "bilingual"
             },
             {
               "id": "m12-3",
               "kind": "line",
               "pali": "Nibbānaṃ paramaṃ vadanti Buddhā,",
-              "english": "Nibbāna is supreme, say the Buddhas."
+              "english": "Nibbāna is supreme, say the Buddhas.",
+              "display": "bilingual"
             },
             {
               "id": "m12-4",
               "kind": "line",
               "pali": "Na hi pabbajito parūpaghātī, samaṇo hoti paraṃ viheṭhayanto.",
-              "english": "A mendicant does not harm others, a recluse oppresses no one."
+              "english": "A mendicant does not harm others, a recluse oppresses no one.",
+              "display": "bilingual"
             },
             {
               "id": "m12-5",
               "kind": "line",
               "pali": "Etaṃ Buddhānaṃ sāsanaṃ.",
-              "english": "This is the teaching of all Buddhas."
+              "english": "This is the teaching of all Buddhas.",
+              "display": "bilingual"
             },
             {
               "id": "m12-6",
               "kind": "line",
               "pali": "Sabbapāpassa akaraṇaṃ,",
-              "english": "Abstaining from all evil,"
+              "english": "Abstaining from all evil,",
+              "display": "bilingual"
             },
             {
               "id": "m12-7",
               "kind": "line",
               "pali": "kusalassūpasampadā,",
-              "english": "cultivating the wholesome,"
+              "english": "cultivating the wholesome,",
+              "display": "bilingual"
             },
             {
               "id": "m12-8",
               "kind": "line",
               "pali": "sacittapariyodapanaṃ,",
-              "english": "cleansing of one's own mind,"
+              "english": "cleansing of one's own mind,",
+              "display": "bilingual"
             },
             {
               "id": "m12-9",
               "kind": "line",
               "pali": "etaṃ Buddhānaṃ sāsanaṃ.",
-              "english": "This is the teaching of all Buddhas."
+              "english": "This is the teaching of all Buddhas.",
+              "display": "bilingual"
             },
             {
               "id": "m12-10",
               "kind": "line",
               "pali": "anūpavādo,",
-              "english": "not insulting,"
+              "english": "not insulting,",
+              "display": "bilingual"
             },
             {
               "id": "m12-11",
               "kind": "line",
               "pali": "anūpaghāto,",
-              "english": "not harming,"
+              "english": "not harming,",
+              "display": "bilingual"
             },
             {
               "id": "m12-12",
               "kind": "line",
               "pali": "pāṭimokkhe ca saṃvaro,",
-              "english": "carefulness in the Fundamental Precepts,"
+              "english": "carefulness in the Fundamental Precepts,",
+              "display": "bilingual"
             },
             {
               "id": "m12-13",
               "kind": "line",
               "pali": "mattaññutā ca bhattasmiṃ,",
-              "english": "moderation in food,"
+              "english": "moderation in food,",
+              "display": "bilingual"
             },
             {
               "id": "m12-14",
               "kind": "line",
               "pali": "pantañca sayanāsanaṃ,",
-              "english": "dwelling in solitude,"
+              "english": "dwelling in solitude,",
+              "display": "bilingual"
             },
             {
               "id": "m12-15",
               "kind": "line",
               "pali": "adhicitte ca āyogo,",
-              "english": "engaging in higher mental development,"
+              "english": "engaging in higher mental development,",
+              "display": "bilingual"
             },
             {
               "id": "m12-16",
               "kind": "line",
               "pali": "etaṃ Buddhānaṃ sāsanaṃ.",
-              "english": "This is the teaching of all Buddhas."
+              "english": "This is the teaching of all Buddhas.",
+              "display": "bilingual"
             }
           ]
         }
@@ -2267,7 +2283,8 @@
               "id": "e12-1",
               "kind": "note",
               "pali": "Handa mayaṃ abhiṇhapaccavekkhaṇapāṭhaṃ bhaṇāmase",
-              "english": "Now let us recite the Daily Reflections."
+              "english": "Now let us recite the Daily Reflections.",
+              "display": "bilingual"
             },
             {
               "id": "e12-2",

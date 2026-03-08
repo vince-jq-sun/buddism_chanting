@@ -275,7 +275,8 @@ def normalize_subsection(tokens: Iterable[RawToken], *, body_mode: str = "toggle
             english = clean_text(token.args[1]) if len(token.args) > 1 else ""
             if pali:
                 kind = "note" if is_instruction(pali) or is_prompt_like(pali) else "line"
-                entries.append(Entry(kind=kind, pali=pali, english=english))
+                display = "bilingual" if body_mode == "bilingual" and english else "toggle"
+                entries.append(Entry(kind=kind, pali=pali, english=english, display=display))
             i += 1
             continue
 
@@ -283,7 +284,8 @@ def normalize_subsection(tokens: Iterable[RawToken], *, body_mode: str = "toggle
             pali = clean_text(f"{token.args[0]} {token.args[1]}")
             english = clean_text(token.args[2])
             if pali:
-                entries.append(Entry(kind="line", pali=pali, english=english))
+                display = "bilingual" if body_mode == "bilingual" and english else "toggle"
+                entries.append(Entry(kind="line", pali=pali, english=english, display=display))
             i += 1
             continue
 
@@ -347,6 +349,8 @@ def normalize_subsection(tokens: Iterable[RawToken], *, body_mode: str = "toggle
             target = attach_translation_target(entries)
             if target is not None:
                 target.english = f"{target.english} {text}".strip()
+                if body_mode == "bilingual" and target.pali and target.english:
+                    target.display = "bilingual"
             else:
                 entries.append(Entry(kind="note", pali="", english=text))
             i += 1
@@ -360,6 +364,8 @@ def normalize_subsection(tokens: Iterable[RawToken], *, body_mode: str = "toggle
             target = attach_translation_target(entries)
             if target is not None:
                 target.english = f"{target.english} {text}".strip()
+                if body_mode == "bilingual" and target.pali and target.english:
+                    target.display = "bilingual"
             i += 1
             continue
 
