@@ -1,6 +1,6 @@
 {
   "name": "Buddhist Chanting",
-  "short_name": "Chanting",
+  "short_name": "Buddhist Chanting",
   "description": "Mobile-first Buddhist chanting booklet with switchable Pali and English main text.",
   "start_url": "./",
   "display": "standalone",
