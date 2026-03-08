@@ -24,6 +24,32 @@ SUBSECTION_RE = re.compile(
     r"\\begin\{chantsubsection\}(.*?)\\end\{chantsubsection\}", re.S
 )
 STYLE_BLOCK_RE = re.compile(r"\{\\englishstyle(?:\\textit)?\s*(.*?)\}", re.S)
+FORCED_ENTRY_DISPLAY = {
+    (
+        "m14",
+        "Arahaṃ sammāsambuddho bhagavā, buddhaṃ bhagavantaṃ abhivādemi.",
+    ): "toggle",
+    (
+        "e14",
+        "Arahaṃ sammāsambuddho bhagavā, buddhaṃ bhagavantaṃ abhivādemi.",
+    ): "toggle",
+    (
+        "m14",
+        "Svākkhāto bhagavatā dhammo, dhammaṃ namassāmi.",
+    ): "bilingual",
+    (
+        "e14",
+        "Svākkhāto bhagavatā dhammo, dhammaṃ namassāmi.",
+    ): "bilingual",
+    (
+        "m14",
+        "Supaṭipanno bhagavato sāvaka-saṅgho, saṅghaṃ namāmi.",
+    ): "bilingual",
+    (
+        "e14",
+        "Supaṭipanno bhagavato sāvaka-saṅgho, saṅghaṃ namāmi.",
+    ): "bilingual",
+}
 
 
 @dataclass
@@ -349,9 +375,6 @@ def normalize_subsection(tokens: Iterable[RawToken], *, body_mode: str = "toggle
             target = attach_translation_target(entries)
             if target is not None:
                 target.english = f"{target.english} {text}".strip()
-                if body_mode == "bilingual" and target.pali and target.english:
-                    if not (target.kind == "note" and is_prompt_like(target.pali)):
-                        target.display = "bilingual"
             else:
                 entries.append(Entry(kind="note", pali="", english=text))
             i += 1
@@ -436,8 +459,9 @@ def parse_chapter(path: Path) -> dict:
                 "pali": entry.pali,
                 "english": entry.english,
             }
-            if entry.display != "toggle":
-                payload["display"] = entry.display
+            display = FORCED_ENTRY_DISPLAY.get((chapter_id, entry.pali), entry.display)
+            if display != "toggle":
+                payload["display"] = display
             entries.append(payload)
         if entries:
             subsections.append({"entries": entries})
