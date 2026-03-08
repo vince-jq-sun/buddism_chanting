@@ -1269,7 +1269,8 @@
               "id": "m14-3",
               "kind": "line",
               "pali": "“buddho me nātho.",
-              "english": "The Buddha is my refuge.”"
+              "english": "The Buddha is my refuge.”",
+              "display": "bilingual"
             },
             {
               "id": "m14-4",
@@ -1287,7 +1288,8 @@
               "id": "m14-6",
               "kind": "line",
               "pali": "“dhammo me nātho.",
-              "english": "The Dhamma is my refuge.”"
+              "english": "The Dhamma is my refuge.”",
+              "display": "bilingual"
             },
             {
               "id": "m14-7",
@@ -1305,7 +1307,8 @@
               "id": "m14-9",
               "kind": "line",
               "pali": "“saṅgho me nātho.",
-              "english": "The Saṅgha is my refuge.”"
+              "english": "The Saṅgha is my refuge.”",
+              "display": "bilingual"
             }
           ]
         }
@@ -2417,7 +2420,8 @@
               "id": "e14-3",
               "kind": "line",
               "pali": "“buddho me nātho.",
-              "english": "The Buddha is my refuge.”"
+              "english": "The Buddha is my refuge.”",
+              "display": "bilingual"
             },
             {
               "id": "e14-4",
@@ -2435,7 +2439,8 @@
               "id": "e14-6",
               "kind": "line",
               "pali": "“dhammo me nātho.",
-              "english": "The Dhamma is my refuge.”"
+              "english": "The Dhamma is my refuge.”",
+              "display": "bilingual"
             },
             {
               "id": "e14-7",
@@ -2453,7 +2458,8 @@
               "id": "e14-9",
               "kind": "line",
               "pali": "“saṅgho me nātho.",
-              "english": "The Saṅgha is my refuge.”"
+              "english": "The Saṅgha is my refuge.”",
+              "display": "bilingual"
             }
           ]
         }
