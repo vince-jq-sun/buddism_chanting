@@ -188,7 +188,7 @@ def is_instruction(text: str) -> bool:
 
 def is_prompt_like(text: str) -> bool:
     lowered = text.lower()
-    return lowered.startswith("handa maya") or "{" in text or "now let us" in lowered
+    return lowered.startswith("handa") or "{" in text or "now let us" in lowered
 
 
 def is_transliteration(text: str) -> bool:
@@ -252,7 +252,8 @@ def normalize_subsection(tokens: Iterable[RawToken]) -> list[Entry]:
             pali = clean_text(token.args[0])
             english = clean_text(token.args[1]) if len(token.args) > 1 else ""
             if pali:
-                entries.append(Entry(kind="line", pali=pali, english=english))
+                kind = "note" if is_instruction(pali) or is_prompt_like(pali) else "line"
+                entries.append(Entry(kind=kind, pali=pali, english=english))
             continue
 
         if token.kind == "chantlinepair":

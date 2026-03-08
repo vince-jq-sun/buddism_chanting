@@ -84,13 +84,13 @@
             },
             {
               "id": "m2-2",
-              "kind": "line",
+              "kind": "note",
               "pali": "Buddhaṃ bhagavantaṃ abhivādemi --- bow ---",
               "english": "To the Buddha, the Blessed One, I pay homage."
             },
             {
               "id": "m2-3",
-              "kind": "line",
+              "kind": "note",
               "pali": "Svākkhāto bhagavatā dhammo dhammaṃ namassāmi --- bow ---",
               "english": "The Dhamma is well expounded by the Blessed One; to the Dhamma I pay homage."
             },
@@ -230,7 +230,7 @@
             },
             {
               "id": "m4-14",
-              "kind": "line",
+              "kind": "note",
               "pali": "Tamahaṃ bhagavantaṃ sirasā namāmi --- bow ---",
               "english": "To that Blessed One I bow my head."
             }
@@ -249,7 +249,7 @@
           "entries": [
             {
               "id": "m5-1",
-              "kind": "line",
+              "kind": "note",
               "pali": "Handa mayaṃ dhammābhithutiṃ karoma se",
               "english": "Now let us recite in praise of the Dhamma."
             },
@@ -279,7 +279,7 @@
             },
             {
               "id": "m5-6",
-              "kind": "line",
+              "kind": "note",
               "pali": "Tamahaṃ dhammaṃ sirasā namāmi --- bow ---",
               "english": "To this Dhamma I bow my head."
             }
@@ -298,7 +298,7 @@
           "entries": [
             {
               "id": "m6-1",
-              "kind": "line",
+              "kind": "note",
               "pali": "Handa mayaṃ saṅghābhithutiṃ karoma se",
               "english": "Now let us recite in praise of the Sangha."
             },
@@ -358,7 +358,7 @@
             },
             {
               "id": "m6-11",
-              "kind": "line",
+              "kind": "note",
               "pali": "Tamahaṃ saṅghaṃ sirasā namāmi --- bow ---",
               "english": "To this Sangha I bow my head."
             }
@@ -1414,7 +1414,7 @@
           "entries": [
             {
               "id": "e3-e4-1",
-              "kind": "line",
+              "kind": "note",
               "pali": "Handadāni mayaṃ taṃ bhagavantaṃ vācāya abhigāyituṃ pubbabhāganamakārañceva buddhānussatinayañca karomase",
               "english": "Now, in order to praise the Blessed One with speech, we perform the preliminary homage and the method of recollecting the Buddha."
             }
@@ -1667,7 +1667,7 @@
           "entries": [
             {
               "id": "e7-1",
-              "kind": "line",
+              "kind": "note",
               "pali": "Handa mayaṃ dhammābhigītiṃ karoma se",
               "english": "Now let us recite a chant in praise of the Dhamma."
             },
