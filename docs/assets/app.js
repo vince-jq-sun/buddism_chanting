@@ -395,6 +395,20 @@ function renderChapters() {
   const stack = document.createElement('div');
   stack.className = 'chapter-stack';
 
+  const hero = document.createElement('header');
+  hero.className = 'booklet-hero';
+
+  const kicker = document.createElement('p');
+  kicker.className = 'booklet-kicker';
+  kicker.textContent = 'Buddhist Chanting';
+
+  const title = document.createElement('h1');
+  title.className = 'booklet-title';
+  title.textContent = 'Booklet';
+
+  hero.append(kicker, title);
+  stack.appendChild(hero);
+
   let lastGroupKey = '';
 
   chapters.forEach((chapter) => {
