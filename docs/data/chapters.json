@@ -135,13 +135,13 @@
               "id": "m3-1",
               "kind": "note",
               "pali": "Handa mayaṃ buddhassa bhagavato pubbabhāganamakāraṃ karoma se",
-              "english": "Now let us pay preliminary homage to the Buddha, the Blessed One. Homage to that Blessed One, an arahant, perfectly awakened."
+              "english": "Now let us pay preliminary homage to the Buddha, the Blessed One."
             },
             {
               "id": "m3-2",
               "kind": "line",
               "pali": "Namo tassa bhagavato arahato sammāsambuddhassa",
-              "english": ""
+              "english": "Homage to that Blessed One, an arahant, perfectly awakened."
             },
             {
               "id": "m3-3",
@@ -1456,13 +1456,13 @@
               "id": "e3-e4-2",
               "kind": "line",
               "pali": "Namo tassa bhagavato arahato sammāsambuddhassa",
-              "english": ""
+              "english": "Homage to the Blessed One, the Arahant, the Perfectly Enlightened One."
             },
             {
               "id": "e3-e4-3",
               "kind": "note",
               "pali": "--- three times ---",
-              "english": "Homage to the Blessed One, the Arahant, the Perfectly Enlightened One."
+              "english": ""
             }
           ]
         },
@@ -2270,73 +2270,71 @@
               "id": "e12-2",
               "kind": "line",
               "pali": "Jarādhammomhi jarāṃ anatīto; for ladies: anatītā.",
-              "english": "I am of the nature to age; I have not gone beyond aging."
+              "english": "I am of the nature to age; I have not gone beyond aging.",
+              "display": "bilingual"
             },
             {
               "id": "e12-3",
               "kind": "line",
               "pali": "Byādhidhammomhi byādhiṃ anatīto; for ladies: anatītā.",
-              "english": "I am of the nature to be ill; I have not gone beyond illness."
+              "english": "I am of the nature to be ill; I have not gone beyond illness.",
+              "display": "bilingual"
             },
             {
               "id": "e12-4",
               "kind": "line",
               "pali": "Maraṇadhammomhi maraṇaṃ anatīto; for ladies: anatītā.",
-              "english": "I am of the nature to die; I have not gone beyond death."
+              "english": "I am of the nature to die; I have not gone beyond death.",
+              "display": "bilingual"
             },
             {
               "id": "e12-5",
               "kind": "line",
               "pali": "Sabbehi me piyehi manāpehi nānābhāvo vinābhāvo",
-              "english": "All that is mine, dear and delightful, will change and be separated from me."
+              "english": "All that is mine, dear and delightful, will change and be separated from me.",
+              "display": "bilingual"
             },
             {
               "id": "e12-6",
               "kind": "line",
               "pali": "Kammassakomhi kammadāyādo",
-              "english": "I am the owner of my kamma; the heir to my kamma."
+              "english": "I am the owner of my kamma; the heir to my kamma.",
+              "display": "bilingual"
             },
             {
               "id": "e12-7",
               "kind": "line",
               "pali": "Kammayoni kammabandhu",
-              "english": "Born of my kamma; related to my kamma."
+              "english": "Born of my kamma; related to my kamma.",
+              "display": "bilingual"
             },
             {
               "id": "e12-8",
               "kind": "line",
               "pali": "Kammapaṭisaraṇo; for ladies: saraṇā.",
-              "english": "I rely on my kamma."
+              "english": "I rely on my kamma.",
+              "display": "bilingual"
             },
             {
               "id": "e12-9",
               "kind": "line",
               "pali": "Yaṃ kammaṃ karissāmi",
-              "english": ""
+              "english": "Whatever kamma I shall do.",
+              "display": "bilingual"
             },
             {
               "id": "e12-10",
               "kind": "line",
-              "pali": "Whatever kamma I shall do.",
-              "english": ""
+              "pali": "Kalyāṇaṃ vā pāpakaṃ vā",
+              "english": "Whether good or evil,",
+              "display": "bilingual"
             },
             {
               "id": "e12-11",
               "kind": "line",
-              "pali": "Kalyāṇaṃ vā pāpakaṃ vā",
-              "english": ""
-            },
-            {
-              "id": "e12-12",
-              "kind": "line",
-              "pali": "Whether good or evil,",
-              "english": ""
-            },
-            {
-              "id": "e12-13",
-              "kind": "line",
               "pali": "Tassa dāyādo; for ladies: dāyādā. bhavissāmi",
-              "english": "Of that I shall be the heir."
+              "english": "Of that I shall be the heir.",
+              "display": "bilingual"
             }
           ]
         }

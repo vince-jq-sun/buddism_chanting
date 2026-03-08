@@ -151,7 +151,14 @@ function syncLanguageToggle() {
   );
 }
 
+function isBilingualEntry(entry) {
+  return entry.display === 'bilingual' && Boolean(entry.pali && entry.english);
+}
+
 function getPrimaryEntryText(entry) {
+  if (isBilingualEntry(entry)) {
+    return entry.pali;
+  }
   if (bodyLanguage === 'en' && entry.english) {
     return entry.english;
   }
@@ -173,6 +180,9 @@ function getAlternateChapterTitle(chapter) {
 }
 
 function getAlternateEntryText(entry) {
+  if (isBilingualEntry(entry)) {
+    return '';
+  }
   if (bodyLanguage === 'en') {
     return entry.english ? entry.pali || '' : '';
   }
@@ -374,6 +384,7 @@ function createEntryElement(entry) {
   const fragment = entryTemplate.content.cloneNode(true);
   const button = fragment.querySelector('.entry');
   const text = fragment.querySelector('.entry-text');
+  const bilingual = isBilingualEntry(entry);
   const alternateText = getAlternateEntryText(entry);
 
   text.textContent = getPrimaryEntryText(entry);
@@ -385,6 +396,15 @@ function createEntryElement(entry) {
 
   if (alternateText) {
     button.classList.add('can-translate');
+  }
+
+  if (bilingual) {
+    button.classList.add('entry-bilingual');
+
+    const secondaryText = document.createElement('span');
+    secondaryText.className = 'entry-secondary-text';
+    secondaryText.textContent = entry.english;
+    button.appendChild(secondaryText);
   }
 
   let startX = 0;

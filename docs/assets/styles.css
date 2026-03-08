@@ -183,6 +183,20 @@ button {
   letter-spacing: 0.01em;
 }
 
+.entry-bilingual {
+  cursor: default;
+}
+
+.entry-secondary-text {
+  display: block;
+  margin-top: 0.16rem;
+  font-family: "Instrument Sans", "Helvetica Neue", sans-serif;
+  font-size: calc(var(--entry-size) * 0.64);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
+
 .entry-note .entry-text {
   font-size: var(--entry-size);
   font-style: italic;

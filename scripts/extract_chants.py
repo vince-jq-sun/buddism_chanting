@@ -19,6 +19,7 @@ CHANT_FILES = [
 
 TITLE_RE = re.compile(r"\\section\*\{([^}]*)\}")
 TITLE_EN_RE = re.compile(r"^\s*%\s*title-en:\s*(.+?)\s*$", re.M)
+BODY_MODE_RE = re.compile(r"^\s*%\s*body-mode:\s*(.+?)\s*$", re.M)
 SUBSECTION_RE = re.compile(
     r"\\begin\{chantsubsection\}(.*?)\\end\{chantsubsection\}", re.S
 )
@@ -36,6 +37,7 @@ class Entry:
     kind: str
     pali: str
     english: str = ""
+    display: str = "toggle"
 
 
 def strip_comments(text: str) -> str:
@@ -232,6 +234,17 @@ def looks_english(text: str) -> bool:
     return any(word in common_words for word in words)
 
 
+def looks_ascii_english(text: str) -> bool:
+    ascii_letters = sum(char.isascii() and char.isalpha() for char in text)
+    total_letters = sum(char.isalpha() for char in text)
+    if ascii_letters == 0 or total_letters == 0:
+        return False
+    if ascii_letters / total_letters < 0.98:
+        return False
+    words = re.findall(r"[A-Za-z']+", text)
+    return len(words) >= 3
+
+
 def attach_translation_target(entries: list[Entry]) -> Entry | None:
     for entry in reversed(entries):
         if entry.english:
@@ -239,21 +252,31 @@ def attach_translation_target(entries: list[Entry]) -> Entry | None:
         if entry.kind == "note" and is_prompt_like(entry.pali):
             return entry
     for entry in reversed(entries):
+        if entry.english:
+            continue
+        if entry.kind == "note" and is_instruction(entry.pali):
+            continue
+        return entry
+    for entry in reversed(entries):
         if not entry.english:
             return entry
     return None
 
 
-def normalize_subsection(tokens: Iterable[RawToken]) -> list[Entry]:
+def normalize_subsection(tokens: Iterable[RawToken], *, body_mode: str = "toggle") -> list[Entry]:
     entries: list[Entry] = []
+    token_list = list(tokens)
+    i = 0
 
-    for token in tokens:
+    while i < len(token_list):
+        token = token_list[i]
         if token.kind in {"chantline", "chantlineinline"}:
             pali = clean_text(token.args[0])
             english = clean_text(token.args[1]) if len(token.args) > 1 else ""
             if pali:
                 kind = "note" if is_instruction(pali) or is_prompt_like(pali) else "line"
                 entries.append(Entry(kind=kind, pali=pali, english=english))
+            i += 1
             continue
 
         if token.kind == "chantlinepair":
@@ -261,55 +284,93 @@ def normalize_subsection(tokens: Iterable[RawToken]) -> list[Entry]:
             english = clean_text(token.args[2])
             if pali:
                 entries.append(Entry(kind="line", pali=pali, english=english))
+            i += 1
             continue
 
         if token.kind in {"chantonly", "chantonlyinline"}:
             pali = clean_text(token.args[0])
             if pali:
                 entries.append(Entry(kind="line", pali=pali, english=""))
+            i += 1
             continue
 
         if token.kind == "chantnote":
             text = clean_text(token.args[0])
             if not text:
+                i += 1
                 continue
+            if (
+                body_mode == "bilingual"
+                and not is_instruction(text)
+                and not looks_english(text)
+                and not looks_ascii_english(text)
+                and i + 1 < len(token_list)
+                and token_list[i + 1].kind == "chantnote"
+            ):
+                next_text = clean_text(token_list[i + 1].args[0])
+                if (
+                    next_text
+                    and (looks_english(next_text) or looks_ascii_english(next_text))
+                    and not is_instruction(next_text)
+                ):
+                    entries.append(
+                        Entry(
+                            kind=classify_chantnote(text),
+                            pali=text,
+                            english=next_text,
+                            display="bilingual",
+                        )
+                    )
+                    i += 2
+                    continue
             if looks_english(text) and not is_instruction(text):
                 target = attach_translation_target(entries)
                 if target is not None:
                     target.english = text
+                    i += 1
                     continue
             if text.startswith("The ") and entries:
                 target = attach_translation_target(entries)
                 if target is not None:
                     target.english = text
+                    i += 1
                     continue
             entries.append(Entry(kind=classify_chantnote(text), pali=text, english=""))
+            i += 1
             continue
 
         if token.kind == "chantnotetrans":
             text = clean_text(token.args[0])
             if not text:
+                i += 1
                 continue
             target = attach_translation_target(entries)
             if target is not None:
                 target.english = f"{target.english} {text}".strip()
             else:
                 entries.append(Entry(kind="note", pali="", english=text))
+            i += 1
             continue
 
         if token.kind == "chantindent":
             text = clean_text(token.args[0])
             if not text or is_transliteration(text):
+                i += 1
                 continue
             target = attach_translation_target(entries)
             if target is not None:
                 target.english = f"{target.english} {text}".strip()
+            i += 1
             continue
 
         if token.kind == "english_block":
             text = clean_text(token.args[0])
             if text:
                 entries.append(Entry(kind="footer", pali="", english=text))
+            i += 1
+            continue
+
+        i += 1
 
     filtered: list[Entry] = []
     for entry in entries:
@@ -334,6 +395,7 @@ def parse_footer_notes(text: str) -> list[str]:
 def parse_chapter(path: Path) -> dict:
     source_text = path.read_text(encoding="utf-8")
     title_english_match = TITLE_EN_RE.search(source_text)
+    body_mode_match = BODY_MODE_RE.search(source_text)
     raw = strip_comments(source_text)
     title_match = TITLE_RE.search(raw)
     if title_match is None:
@@ -348,6 +410,7 @@ def parse_chapter(path: Path) -> dict:
         short_code = infer_short_code(path)
         title = clean_text(raw_title)
     title_english = clean_text(title_english_match.group(1)) if title_english_match else title
+    body_mode = clean_text(body_mode_match.group(1)).lower() if body_mode_match else "toggle"
 
     chapter_id = normalize_identifier(short_code) or normalize_identifier(path.stem)
     subsections = []
@@ -356,18 +419,19 @@ def parse_chapter(path: Path) -> dict:
     for subsection_body in SUBSECTION_RE.findall(raw):
         tokens = tokenize_subsection(subsection_body)
         entries = []
-        for entry in normalize_subsection(tokens):
+        for entry in normalize_subsection(tokens, body_mode=body_mode):
             if entry.kind == "footer":
                 continue
             entry_index += 1
-            entries.append(
-                {
-                    "id": f"{chapter_id}-{entry_index}",
-                    "kind": entry.kind,
-                    "pali": entry.pali,
-                    "english": entry.english,
-                }
-            )
+            payload = {
+                "id": f"{chapter_id}-{entry_index}",
+                "kind": entry.kind,
+                "pali": entry.pali,
+                "english": entry.english,
+            }
+            if entry.display != "toggle":
+                payload["display"] = entry.display
+            entries.append(payload)
         if entries:
             subsections.append({"entries": entries})
 
