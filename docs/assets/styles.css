@@ -123,6 +123,26 @@ button {
   line-height: 0.98;
 }
 
+.chapter-title-button {
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+}
+
+.chapter-title-button.can-translate {
+  cursor: pointer;
+}
+
+.chapter-title-button:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
 .chapter-content {
   display: grid;
   gap: 1rem;
@@ -587,6 +607,10 @@ button {
 @media (hover: hover) and (pointer: fine) {
   .entry:hover.can-translate {
     background: rgba(143, 63, 30, 0.05);
+  }
+
+  .chapter-title-button.can-translate:hover {
+    color: var(--accent);
   }
 
   .toolbar-button:hover,

@@ -50,7 +50,7 @@ let chapters = [];
 let chapterElements = new Map();
 let directoryButtons = new Map();
 let directoryGroups = new Map();
-let activeEntryElement = null;
+let activeTranslatedElement = null;
 let activeChapterId = localStorage.getItem(STORAGE_KEYS.chapter) || '';
 let bodyLanguage = normalizeLanguage(localStorage.getItem(STORAGE_KEYS.language));
 let fontScale = clamp(
@@ -165,6 +165,13 @@ function getChapterTitle(chapter) {
   return chapter.title || chapter.titleEnglish || '';
 }
 
+function getAlternateChapterTitle(chapter) {
+  if (bodyLanguage === 'en') {
+    return chapter.title || '';
+  }
+  return chapter.titleEnglish || '';
+}
+
 function getAlternateEntryText(entry) {
   if (bodyLanguage === 'en') {
     return entry.english ? entry.pali || '' : '';
@@ -257,29 +264,36 @@ function closeDrawer() {
   drawer.classList.remove('open');
   drawer.setAttribute('aria-hidden', 'true');
   drawerBackdrop.hidden = true;
-  if (activeEntryElement) {
-    activeEntryElement.classList.remove('highlighted');
-    activeEntryElement = null;
+  if (activeTranslatedElement) {
+    activeTranslatedElement.classList.remove('highlighted');
+    activeTranslatedElement = null;
   }
 }
 
-function openDrawer(entry, element) {
-  const alternateText = getAlternateEntryText(entry);
-  if (!alternateText) {
+function openDrawer(sourceText, alternateText, element) {
+  if (!sourceText || !alternateText || sourceText === alternateText) {
     return;
   }
 
-  if (activeEntryElement) {
-    activeEntryElement.classList.remove('highlighted');
+  if (activeTranslatedElement) {
+    activeTranslatedElement.classList.remove('highlighted');
   }
 
-  activeEntryElement = element;
-  activeEntryElement.classList.add('highlighted');
-  drawerSource.textContent = getPrimaryEntryText(entry);
+  activeTranslatedElement = element;
+  activeTranslatedElement.classList.add('highlighted');
+  drawerSource.textContent = sourceText;
   drawerTranslation.textContent = alternateText;
   drawer.classList.add('open');
   drawer.setAttribute('aria-hidden', 'false');
   drawerBackdrop.hidden = false;
+}
+
+function openEntryDrawer(entry, element) {
+  openDrawer(getPrimaryEntryText(entry), getAlternateEntryText(entry), element);
+}
+
+function openChapterTitleDrawer(chapter, element) {
+  openDrawer(getChapterTitle(chapter), getAlternateChapterTitle(chapter), element);
 }
 
 function openChapterDrawer() {
@@ -409,7 +423,7 @@ function createEntryElement(entry) {
     touchStartTime = 0;
 
     if (shouldOpen) {
-      openDrawer(entry, button);
+      openEntryDrawer(entry, button);
     }
   };
 
@@ -442,7 +456,7 @@ function createEntryElement(entry) {
       return;
     }
     if (alternateText) {
-      openDrawer(entry, button);
+      openEntryDrawer(entry, button);
     }
   });
 
@@ -538,7 +552,17 @@ function renderChapters() {
     article.dataset.chapterId = chapter.id;
     article.dataset.groupKey = groupKey;
 
-    fragment.querySelector('.chapter-title').textContent = getChapterTitle(chapter);
+    const chapterTitleButton = fragment.querySelector('.chapter-title-button');
+    const alternateChapterTitle = getAlternateChapterTitle(chapter);
+    chapterTitleButton.textContent = getChapterTitle(chapter);
+    if (alternateChapterTitle && alternateChapterTitle !== getChapterTitle(chapter)) {
+      chapterTitleButton.classList.add('can-translate');
+      chapterTitleButton.addEventListener('click', () => {
+        openChapterTitleDrawer(chapter, chapterTitleButton);
+      });
+    } else {
+      chapterTitleButton.disabled = true;
+    }
 
     const content = fragment.querySelector('.chapter-content');
     chapter.subsections.forEach((subsection) => {
