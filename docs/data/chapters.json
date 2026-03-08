@@ -124,7 +124,7 @@
             },
             {
               "id": "m3-2",
-              "kind": "note",
+              "kind": "line",
               "pali": "Namo tassa bhagavato arahato sammāsambuddhassa",
               "english": ""
             },
@@ -1058,91 +1058,91 @@
           "entries": [
             {
               "id": "m12-2",
-              "kind": "note",
+              "kind": "line",
               "pali": "Khantī paramaṃ tapo titikkhā,",
               "english": "Patience is the supreme purifying practice,"
             },
             {
               "id": "m12-3",
-              "kind": "note",
+              "kind": "line",
               "pali": "Nibbānaṃ paramaṃ vadanti Buddhā,",
               "english": "Nibbāna is supreme, say the Buddhas."
             },
             {
               "id": "m12-4",
-              "kind": "note",
+              "kind": "line",
               "pali": "Na hi pabbajito parūpaghātī, samaṇo hoti paraṃ viheṭhayanto.",
               "english": "A mendicant does not harm others, a recluse oppresses no one."
             },
             {
               "id": "m12-5",
-              "kind": "note",
+              "kind": "line",
               "pali": "Etaṃ Buddhānaṃ sāsanaṃ.",
               "english": "This is the teaching of all Buddhas."
             },
             {
               "id": "m12-6",
-              "kind": "note",
+              "kind": "line",
               "pali": "Sabbapāpassa akaraṇaṃ,",
               "english": "Abstaining from all evil,"
             },
             {
               "id": "m12-7",
-              "kind": "note",
+              "kind": "line",
               "pali": "kusalassūpasampadā,",
               "english": "cultivating the wholesome,"
             },
             {
               "id": "m12-8",
-              "kind": "note",
+              "kind": "line",
               "pali": "sacittapariyodapanaṃ,",
               "english": "cleansing of one's own mind,"
             },
             {
               "id": "m12-9",
-              "kind": "note",
+              "kind": "line",
               "pali": "etaṃ Buddhānaṃ sāsanaṃ.",
               "english": "This is the teaching of all Buddhas."
             },
             {
               "id": "m12-10",
-              "kind": "note",
+              "kind": "line",
               "pali": "anūpavādo,",
               "english": "not insulting,"
             },
             {
               "id": "m12-11",
-              "kind": "note",
+              "kind": "line",
               "pali": "anūpaghāto,",
               "english": "not harming,"
             },
             {
               "id": "m12-12",
-              "kind": "note",
+              "kind": "line",
               "pali": "pāṭimokkhe ca saṃvaro,",
               "english": "carefulness in the Fundamental Precepts,"
             },
             {
               "id": "m12-13",
-              "kind": "note",
+              "kind": "line",
               "pali": "mattaññutā ca bhattasmiṃ,",
               "english": "moderation in food,"
             },
             {
               "id": "m12-14",
-              "kind": "note",
+              "kind": "line",
               "pali": "pantañca sayanāsanaṃ,",
               "english": "dwelling in solitude,"
             },
             {
               "id": "m12-15",
-              "kind": "note",
+              "kind": "line",
               "pali": "adhicitte ca āyogo,",
               "english": "engaging in higher mental development,"
             },
             {
               "id": "m12-16",
-              "kind": "note",
+              "kind": "line",
               "pali": "etaṃ Buddhānaṃ sāsanaṃ.",
               "english": "This is the teaching of all Buddhas."
             }
@@ -1211,7 +1211,7 @@
           "entries": [
             {
               "id": "m14-1",
-              "kind": "note",
+              "kind": "line",
               "pali": "Arahaṃ sammāsambuddho bhagavā, buddhaṃ bhagavantaṃ abhivādemi.",
               "english": ""
             },
@@ -1223,13 +1223,13 @@
             },
             {
               "id": "m14-3",
-              "kind": "note",
+              "kind": "line",
               "pali": "“buddho me nātho.",
               "english": "The Buddha is my refuge.”"
             },
             {
               "id": "m14-4",
-              "kind": "note",
+              "kind": "line",
               "pali": "Svākkhāto bhagavatā dhammo, dhammaṃ namassāmi.",
               "english": ""
             },
@@ -1241,13 +1241,13 @@
             },
             {
               "id": "m14-6",
-              "kind": "note",
+              "kind": "line",
               "pali": "“dhammo me nātho.",
               "english": "The Dhamma is my refuge.”"
             },
             {
               "id": "m14-7",
-              "kind": "note",
+              "kind": "line",
               "pali": "Supaṭipanno bhagavato sāvaka-saṅgho, saṅghaṃ namāmi.",
               "english": ""
             },
@@ -1259,7 +1259,7 @@
             },
             {
               "id": "m14-9",
-              "kind": "note",
+              "kind": "line",
               "pali": "“saṅgho me nātho.",
               "english": "The Saṅgha is my refuge.”"
             }

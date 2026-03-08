@@ -182,6 +182,12 @@ def is_transliteration(text: str) -> bool:
     return stripped.startswith("(") and stripped.endswith(")")
 
 
+def classify_chantnote(text: str) -> str:
+    if is_instruction(text) or is_prompt_like(text):
+        return "note"
+    return "line"
+
+
 def looks_english(text: str) -> bool:
     ascii_letters = sum(char.isascii() and char.isalpha() for char in text)
     total_letters = sum(char.isalpha() for char in text)
@@ -262,7 +268,7 @@ def normalize_subsection(tokens: Iterable[RawToken]) -> list[Entry]:
                 if target is not None:
                     target.english = text
                     continue
-            entries.append(Entry(kind="note", pali=text, english=""))
+            entries.append(Entry(kind=classify_chantnote(text), pali=text, english=""))
             continue
 
         if token.kind == "chantnotetrans":

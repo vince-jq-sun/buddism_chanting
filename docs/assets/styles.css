@@ -75,6 +75,7 @@ button {
   gap: 0;
   max-width: 56rem;
   margin: 0 auto;
+  padding-top: 1rem;
 }
 
 .chapter-id,
@@ -114,7 +115,7 @@ button {
 }
 
 .chapter-title {
-  font-size: clamp(2rem, 7vw, 3.15rem);
+  font-size: clamp(1.35rem, 4.6vw, 2.1rem);
   line-height: 0.98;
 }
 
@@ -159,7 +160,8 @@ button {
 }
 
 .entry-note .entry-text {
-  font-size: var(--note-size);
+  font-size: var(--entry-size);
+  font-style: italic;
   color: var(--muted);
 }
 
@@ -488,7 +490,7 @@ button {
   }
 
   .chapter-title {
-    font-size: clamp(2.45rem, 4.3vw, 3.85rem);
+    font-size: clamp(1.65rem, 2.85vw, 2.55rem);
   }
 
   .entry-text {

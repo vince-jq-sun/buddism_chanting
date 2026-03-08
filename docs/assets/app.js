@@ -1,17 +1,17 @@
 const STORAGE_KEYS = {
   chapter: 'chanting.selectedChapter',
-  fontScale: 'chanting.fontScale.v2',
+  fontScale: 'chanting.fontScale.v3',
 };
 
-const DEFAULT_FONT_SCALE = 0.75;
+const DEFAULT_FONT_SCALE = 1;
 const MIN_SCALE = 0.6;
 const MAX_SCALE = 1.3;
 const STEP = 0.05;
 const MOVE_THRESHOLD = 10;
 const TAP_MAX_MS = 280;
 const ACTIVE_CHAPTER_OFFSET = 72;
-const BASE_ENTRY_SIZE = 1.55;
-const BASE_NOTE_SIZE = 1.05;
+const BASE_ENTRY_SIZE = 1.163;
+const BASE_NOTE_SIZE = 0.788;
 
 const GROUP_ORDER = ['morning', 'evening', 'homage', 'other'];
 const GROUP_LABELS = {
@@ -21,22 +21,22 @@ const GROUP_LABELS = {
   other: 'Other',
 };
 
-const chapterView = document.querySelector('#chapter-view');
-const chapterTemplate = document.querySelector('#chapter-template');
-const entryTemplate = document.querySelector('#entry-template');
-const chapterMenuToggle = document.querySelector('#chapter-menu-toggle');
-const chapterDrawer = document.querySelector('#chapter-drawer');
-const chapterDrawerClose = document.querySelector('#chapter-drawer-close');
-const chapterDrawerBackdrop = document.querySelector('#chapter-drawer-backdrop');
-const chapterDirectory = document.querySelector('#chapter-directory');
-const fontDown = document.querySelector('#font-down');
-const fontUp = document.querySelector('#font-up');
-const fontSizeLabel = document.querySelector('#font-size-label');
-const drawer = document.querySelector('#translation-drawer');
-const drawerClose = document.querySelector('#drawer-close');
-const drawerSource = document.querySelector('#drawer-source');
-const drawerTranslation = document.querySelector('#drawer-translation');
-const drawerBackdrop = document.querySelector('#drawer-backdrop');
+let chapterView;
+let chapterTemplate;
+let entryTemplate;
+let chapterMenuToggle;
+let chapterDrawer;
+let chapterDrawerClose;
+let chapterDrawerBackdrop;
+let chapterDirectory;
+let fontDown;
+let fontUp;
+let fontSizeLabel;
+let drawer;
+let drawerClose;
+let drawerSource;
+let drawerTranslation;
+let drawerBackdrop;
 
 let chapters = [];
 let chapterElements = new Map();
@@ -53,6 +53,25 @@ let scrollFrame = 0;
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
+}
+
+function cacheElements() {
+  chapterView = document.querySelector('#chapter-view');
+  chapterTemplate = document.querySelector('#chapter-template');
+  entryTemplate = document.querySelector('#entry-template');
+  chapterMenuToggle = document.querySelector('#chapter-menu-toggle');
+  chapterDrawer = document.querySelector('#chapter-drawer');
+  chapterDrawerClose = document.querySelector('#chapter-drawer-close');
+  chapterDrawerBackdrop = document.querySelector('#chapter-drawer-backdrop');
+  chapterDirectory = document.querySelector('#chapter-directory');
+  fontDown = document.querySelector('#font-down');
+  fontUp = document.querySelector('#font-up');
+  fontSizeLabel = document.querySelector('#font-size-label');
+  drawer = document.querySelector('#translation-drawer');
+  drawerClose = document.querySelector('#drawer-close');
+  drawerSource = document.querySelector('#drawer-source');
+  drawerTranslation = document.querySelector('#drawer-translation');
+  drawerBackdrop = document.querySelector('#drawer-backdrop');
 }
 
 function getChapterGroup(chapter) {
@@ -400,6 +419,12 @@ function renderChapters() {
 }
 
 async function init() {
+  cacheElements();
+
+  if (!chapterView || !chapterTemplate || !entryTemplate) {
+    throw new Error('Reader UI failed to initialize.');
+  }
+
   saveFontScale(fontScale);
 
   const response = await fetch('./data/chapters.json');
@@ -407,40 +432,59 @@ async function init() {
   chapters = payload.chapters || [];
   renderChapters();
 
-  const initialChapterId = chapters.some((chapter) => chapter.id === activeChapterId)
+  const storedChapterId = chapters.some((chapter) => chapter.id === activeChapterId)
     ? activeChapterId
-    : chapters[0]?.id || '';
+    : '';
+  const firstChapterId = chapters[0]?.id || '';
 
-  if (initialChapterId) {
-    scrollToChapter(initialChapterId, 'auto');
+  if (storedChapterId && storedChapterId !== firstChapterId) {
+    scrollToChapter(storedChapterId, 'auto');
+  } else if (firstChapterId) {
+    setActiveChapter(firstChapterId);
   }
 }
 
-fontDown.addEventListener('click', () => saveFontScale(fontScale - STEP));
-fontUp.addEventListener('click', () => saveFontScale(fontScale + STEP));
-chapterMenuToggle.addEventListener('click', () => {
-  if (chapterDrawer.classList.contains('open')) {
-    closeChapterDrawer();
-    return;
-  }
-  openChapterDrawer();
-});
-chapterDrawerClose.addEventListener('click', closeChapterDrawer);
-chapterDrawerBackdrop.addEventListener('click', closeChapterDrawer);
-drawerClose.addEventListener('click', closeDrawer);
-drawerBackdrop.addEventListener('click', closeDrawer);
-chapterView.addEventListener('scroll', queueActiveChapterUpdate, { passive: true });
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
+function bindEvents() {
+  fontDown?.addEventListener('click', () => saveFontScale(fontScale - STEP));
+  fontUp?.addEventListener('click', () => saveFontScale(fontScale + STEP));
+  chapterMenuToggle?.addEventListener('click', () => {
     if (chapterDrawer.classList.contains('open')) {
       closeChapterDrawer();
       return;
     }
-    closeDrawer();
-  }
-});
+    openChapterDrawer();
+  });
+  chapterDrawerClose?.addEventListener('click', closeChapterDrawer);
+  chapterDrawerBackdrop?.addEventListener('click', closeChapterDrawer);
+  drawerClose?.addEventListener('click', closeDrawer);
+  drawerBackdrop?.addEventListener('click', closeDrawer);
+  chapterView?.addEventListener('scroll', queueActiveChapterUpdate, { passive: true });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      if (chapterDrawer?.classList.contains('open')) {
+        closeChapterDrawer();
+        return;
+      }
+      closeDrawer();
+    }
+  });
+}
 
-init().catch((error) => {
-  chapterView.innerHTML = `<div class="loading">Unable to load chants. ${error.message}</div>`;
-  console.error(error);
-});
+function startApp() {
+  cacheElements();
+  bindEvents();
+
+  init().catch((error) => {
+    const root = chapterView || document.querySelector('#chapter-view');
+    if (root) {
+      root.innerHTML = `<div class="loading">Unable to load chants. ${error.message}</div>`;
+    }
+    console.error(error);
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', startApp, { once: true });
+} else {
+  startApp();
+}

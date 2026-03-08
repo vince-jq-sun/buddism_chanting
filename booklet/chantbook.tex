@@ -37,11 +37,11 @@
 % （polyglossia 会加载 fontspec，所以必须用 xelatex/lualatex）
 \usepackage{polyglossia}
 \setdefaultlanguage{english}
-\setotherlanguage{pali}
 
 \usepackage{fontspec}
-% \setmainfont{Linux Libertine O}
-\setmainfont{TeX Gyre Pagella}
+% 使用当前机器可用字体，避免缺字或编译中断
+\setmainfont{STIX Two Text}
+\providecommand{\textpali}[1]{#1}
 
 % ===== Title font (XeLaTeX/LuaLaTeX) =====
 \newfontfamily\titlefont{EB Garamond}[
@@ -172,18 +172,14 @@
   \stepcounter{chantline}%
   {\palistyle\sloppy \chantlabel #1\par}%
   \IfNoValueF{#2}{%
-    \begingroup
-      \edef\tempb{\detokenize{#2}}%
-      \ifx\tempb\@empty
-        % { } 空翻译：不缓存
-      \else
-        \edef\temp{\endgroup
-          \noexpand\g@addto@macro\noexpand\chant@english
-            {\noexpand\chantlabelnum{\thechantline}\unexpanded{#2}\space}%
-        }%
-        \temp
-      \fi
-    \endgroup
+    \edef\tempb{\detokenize{#2}}%
+    \ifx\tempb\@empty
+      % { } 空翻译：不缓存
+    \else
+      \xappto\chant@english{%
+        \noexpand\chantlabelnum{\thechantline}\unexpanded{#2}\space
+      }%
+    \fi
   }%
 }
 
@@ -192,17 +188,13 @@
   \stepcounter{chantline}%
   {\palistyle\sloppy \chantlabel #1\space}%
   \IfNoValueF{#2}{%
-    \begingroup
-      \edef\tempb{\detokenize{#2}}%
-      \ifx\tempb\@empty
-      \else
-        \edef\temp{\endgroup
-          \noexpand\g@addto@macro\noexpand\chant@english
-            {\noexpand\chantlabelnum{\thechantline}\unexpanded{#2}\space}%
-        }%
-        \temp
-      \fi
-    \endgroup
+    \edef\tempb{\detokenize{#2}}%
+    \ifx\tempb\@empty
+    \else
+      \xappto\chant@english{%
+        \noexpand\chantlabelnum{\thechantline}\unexpanded{#2}\space
+      }%
+    \fi
   }%
 }
 
@@ -217,12 +209,9 @@
     \begin{minipage}[t]{0.50\linewidth}#2\end{minipage}%
     \par
   }%
-  \begingroup
-    \edef\temp{\endgroup
-      \noexpand\g@addto@macro\noexpand\chant@english
-        {\noexpand\chantlabelnum{\thechantline}#3\space}%
-    }%
-  \temp
+  \xappto\chant@english{%
+    \noexpand\chantlabelnum{\thechantline}\unexpanded{#3}\space
+  }%
 }
 
 \NewDocumentCommand{\chantlineinlinepali}{m g}{%
@@ -230,17 +219,13 @@
   % 每句独立成行 + 强制用 pali 断字（由 \textpali 决定）
   {\normalsize\bfseries \textpali{\chantlabel #1}\par}%
   \IfNoValueF{#2}{%
-    \begingroup
-      \edef\tempb{\detokenize{#2}}%
-      \ifx\tempb\@empty
-      \else
-        \edef\temp{\endgroup
-          \noexpand\g@addto@macro\noexpand\chant@english
-            {\noexpand\chantlabelnum{\thechantline}\unexpanded{#2}\space}%
-        }%
-        \temp
-      \fi
-    \endgroup
+    \edef\tempb{\detokenize{#2}}%
+    \ifx\tempb\@empty
+    \else
+      \xappto\chant@english{%
+        \noexpand\chantlabelnum{\thechantline}\unexpanded{#2}\space
+      }%
+    \fi
   }%
 }
 
@@ -347,5 +332,3 @@
 \vspace{5mm}
            
 \end{document}
-
-
